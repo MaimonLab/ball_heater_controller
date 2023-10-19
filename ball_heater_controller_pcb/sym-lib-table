@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "ball_heater_controller-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/ball_heater_controller-eagle-import.kicad_sym")(options "")(descr ""))
+)

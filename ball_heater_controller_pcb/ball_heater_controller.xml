@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/Users/jazzlw/src/ball_heater_controller/ball_heater_controller.kicad_sch</source>
+    <date>2023 October 12, Thursday 17:54:09</date>
+    <tool>Eeschema 7.0.8</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>ball_heater_controller.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="A1">
+      <value>Arduino_UNO_R3</value>
+      <footprint>Misc_custom:Metro_mini</footprint>
+      <datasheet>https://www.arduino.cc/en/Main/arduinoBoardUno</datasheet>
+      <libsource lib="Light-and-Sugar-Controller-rescue" part="Arduino_UNO_R3-MCU_Module" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b3756e28-cb63-4114-a36f-d6c1dc6440dd</tstamps>
+    </comp>
+    <comp ref="C1">
+      <value>470uF</value>
+      <footprint>Capacitor_THT:CP_Radial_D12.5mm_P5.00mm</footprint>
+      <libsource lib="Light-and-Sugar-Controller-rescue" part="CP1-Device" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>de46e3ad-6c2f-4ca2-bd82-f250ef4fd6ac</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>44799621-272b-4846-ae37-94ace7aa3c41</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>4.7uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7b9a2e98-bbe5-44bb-9502-da0cd5e8c530</tstamps>
+    </comp>
+    <comp ref="C4">
+      <value>4.7uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>da50c0ff-c499-4c0d-b43a-ca90f1c0c119</tstamps>
+    </comp>
+    <comp ref="C5">
+      <value>2.2uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4c9883c9-ed67-413a-b07a-e4af04e4c431</tstamps>
+    </comp>
+    <comp ref="C6">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>216942b8-0dfc-4386-94ca-9a42dd9252ad</tstamps>
+    </comp>
+    <comp ref="C7">
+      <value>.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>286a32c9-65fd-4f6f-a945-c4fef6f181f0</tstamps>
+    </comp>
+    <comp ref="C8">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6628b292-2376-4c7b-bad4-568f3c654b27</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>BAS316</value>
+      <footprint>Diode_SMD:D_SOD-323_HandSoldering</footprint>
+      <libsource lib="Temperature-Controller-V_2-rescue" part="D_ALT-Device" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a9681fb5-6ad3-4bf9-8c1d-35f6612288e3</tstamps>
+    </comp>
+    <comp ref="H1">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_3.7mm</footprint>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Mounting Hole without connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>35d56c8c-bd9c-4c63-a6ac-6e16379540f3</tstamps>
+    </comp>
+    <comp ref="H2">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_3.7mm</footprint>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Mounting Hole without connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cf2e424c-e2f4-432f-8675-396bfa9afc5b</tstamps>
+    </comp>
+    <comp ref="H3">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_3.7mm</footprint>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Mounting Hole without connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>52373bb0-55e9-476e-ba27-14a1b827bab8</tstamps>
+    </comp>
+    <comp ref="H4">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_3.7mm</footprint>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Mounting Hole without connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bd5e11af-35ba-4089-8b0e-dcbecbcb369e</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>Screw_Terminal_01x02</value>
+      <footprint>digikey-footprints:Term_Block_1x2_P5.08MM</footprint>
+      <libsource lib="Connector" part="Screw_Terminal_01x02" description="Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="screw terminal"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f3e3e081-02f9-480c-b4a5-2e9f031c042e</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>qwiic</value>
+      <footprint>Misc_custom:BM04B-SRSS-TB(LF)(SN)</footprint>
+      <libsource lib="Connector" part="Conn_01x04_Male" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ce341143-3ab0-48b6-9be5-e1353ecf4e47</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>B3B-PH-SM4-TB(LF)(SN)</value>
+      <footprint>Connector_JST:JST_PH_B3B-PH-SM4-TB_1x03-1MP_P2.00mm_Vertical</footprint>
+      <datasheet>https://www.digikey.com/product-detail/en/jst-sales-america-inc/B3B-PH-SM4-TB_LF__SN_/455-1735-1-ND/926832?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol</datasheet>
+      <fields>
+        <field name="Field4">B3B-PH-SM4-TB_LF__SN_</field>
+        <field name="Field5">PH Series 3 Position 2 mm Pitch Crimp Surface Mount Top Entry Shrouded Header</field>
+        <field name="Field6">2010 JST</field>
+        <field name="Field7">JST Sales</field>
+        <field name="Field8">455-1735-1-ND</field>
+      </fields>
+      <libsource lib="B3B-PH-SM4-TB_LF__SN_" part="B3B-PH-SM4-TB(LF)(SN)" description=""/>
+      <property name="Field4" value="B3B-PH-SM4-TB_LF__SN_"/>
+      <property name="Field5" value="PH Series 3 Position 2 mm Pitch Crimp Surface Mount Top Entry Shrouded Header"/>
+      <property name="Field6" value="2010 JST"/>
+      <property name="Field7" value="JST Sales"/>
+      <property name="Field8" value="455-1735-1-ND"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ce47c4b8-d8fb-4492-a71a-1acf43d05c9c</tstamps>
+    </comp>
+    <comp ref="J4">
+      <value>B3B-PH-SM4-TB(LF)(SN)</value>
+      <footprint>Connector_JST:JST_PH_B3B-PH-SM4-TB_1x03-1MP_P2.00mm_Vertical</footprint>
+      <datasheet>https://www.digikey.com/product-detail/en/jst-sales-america-inc/B3B-PH-SM4-TB_LF__SN_/455-1735-1-ND/926832?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol</datasheet>
+      <fields>
+        <field name="Field4">B3B-PH-SM4-TB_LF__SN_</field>
+        <field name="Field5">PH Series 3 Position 2 mm Pitch Crimp Surface Mount Top Entry Shrouded Header</field>
+        <field name="Field6">2010 JST</field>
+        <field name="Field7">JST Sales</field>
+        <field name="Field8">455-1735-1-ND</field>
+      </fields>
+      <libsource lib="B3B-PH-SM4-TB_LF__SN_" part="B3B-PH-SM4-TB(LF)(SN)" description=""/>
+      <property name="Field4" value="B3B-PH-SM4-TB_LF__SN_"/>
+      <property name="Field5" value="PH Series 3 Position 2 mm Pitch Crimp Surface Mount Top Entry Shrouded Header"/>
+      <property name="Field6" value="2010 JST"/>
+      <property name="Field7" value="JST Sales"/>
+      <property name="Field8" value="455-1735-1-ND"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>65a83208-6421-443c-b5f9-38cc8b8359c9</tstamps>
+    </comp>
+    <comp ref="J5">
+      <value>M8S-04PFFR-SF8001</value>
+      <footprint>Misc_custom:AMPHENOL_M8S-04PFFR-SF8001</footprint>
+      <fields>
+        <field name="MANUFACTURER">Amphenol</field>
+        <field name="MAXIMUM_PACKAGE_HEIGHT">12.581 mm</field>
+        <field name="PARTREV">B</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <libsource lib="Misc_Custom" part="M8S-04PFFR-SF8001" description=""/>
+      <property name="PARTREV" value="B"/>
+      <property name="STANDARD" value="Manufacturer Recommendations"/>
+      <property name="MAXIMUM_PACKAGE_HEIGHT" value="12.581 mm"/>
+      <property name="MANUFACTURER" value="Amphenol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bf305055-d12e-4c29-a490-17343fe57931</tstamps>
+    </comp>
+    <comp ref="J6">
+      <value>Barrel_Jack_Switch</value>
+      <footprint>Connector_BarrelJack:BarrelJack_Horizontal</footprint>
+      <libsource lib="Connector" part="Barrel_Jack_Switch" description="DC Barrel Jack with an internal switch"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="DC Barrel Jack with an internal switch"/>
+      <property name="ki_keywords" value="DC power barrel jack connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ea671a40-dbcf-4170-b2bf-41a419e9176e</tstamps>
+    </comp>
+    <comp ref="PS1">
+      <value>F0512S-1WR3</value>
+      <footprint>Misc_custom:CONV_F0512S-1WR3</footprint>
+      <fields>
+        <field name="MANUFACTURER">Mornsun</field>
+        <field name="MAXIMUM_PACKAGE_HEIGHT">10.16 mm</field>
+        <field name="PARTREV">2021.12.28-A/6</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <libsource lib="Misc_Custom" part="F0512S-1WR3" description=""/>
+      <property name="PARTREV" value="2021.12.28-A/6"/>
+      <property name="MANUFACTURER" value="Mornsun"/>
+      <property name="MAXIMUM_PACKAGE_HEIGHT" value="10.16 mm"/>
+      <property name="STANDARD" value="Manufacturer Recommendations"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b6240557-eaf9-4c2d-b99b-782d810a2679</tstamps>
+    </comp>
+    <comp ref="Q1">
+      <value>BSS138DW-7-F</value>
+      <footprint>digikey-footprints:SOT-363</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/ds30203.pdf</datasheet>
+      <fields>
+        <field name="Category">Discrete Semiconductor Products</field>
+        <field name="DK_Datasheet_Link">https://www.diodes.com/assets/Datasheets/ds30203.pdf</field>
+        <field name="DK_Detail_Page">/product-detail/en/diodes-incorporated/BSS138DW-7-F/BSS138DW-FDICT-ND/808541</field>
+        <field name="Description">MOSFET 2N-CH 50V 0.2A SC70-6</field>
+        <field name="Digi-Key_PN">BSS138DW-FDICT-ND</field>
+        <field name="Family">Transistors - FETs, MOSFETs - Arrays</field>
+        <field name="MPN">BSS138DW-7-F</field>
+        <field name="Manufacturer">Diodes Incorporated</field>
+        <field name="Status">Active</field>
+      </fields>
+      <libsource lib="dk_Transistors-FETs-MOSFETs-Arrays" part="BSS138DW-7-F" description="MOSFET 2N-CH 50V 0.2A SC70-6"/>
+      <property name="Digi-Key_PN" value="BSS138DW-FDICT-ND"/>
+      <property name="MPN" value="BSS138DW-7-F"/>
+      <property name="Category" value="Discrete Semiconductor Products"/>
+      <property name="Family" value="Transistors - FETs, MOSFETs - Arrays"/>
+      <property name="DK_Datasheet_Link" value="https://www.diodes.com/assets/Datasheets/ds30203.pdf"/>
+      <property name="DK_Detail_Page" value="/product-detail/en/diodes-incorporated/BSS138DW-7-F/BSS138DW-FDICT-ND/808541"/>
+      <property name="Description" value="MOSFET 2N-CH 50V 0.2A SC70-6"/>
+      <property name="Manufacturer" value="Diodes Incorporated"/>
+      <property name="Status" value="Active"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="MOSFET 2N-CH 50V 0.2A SC70-6"/>
+      <property name="ki_keywords" value="BSS138DW-FDICT-ND"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c475055c-d878-41ff-b8f7-6e56ccf2045f</tstamps>
+    </comp>
+    <comp ref="Q2">
+      <value>AON7528</value>
+      <footprint>Misc_custom:TRANS_AON7403</footprint>
+      <libsource lib="Device" part="Q_NMOS_GSD" description="N-MOSFET transistor, gate/source/drain"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="N-MOSFET transistor, gate/source/drain"/>
+      <property name="ki_keywords" value="transistor NMOS N-MOS N-MOSFET"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>121cea1c-e2fc-4582-8560-18d1fe9c1bf1</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5b74bbc1-1eae-462e-a10b-354f9eaa9967</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>10R</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>856f0cef-2f1a-406b-a934-9c32d1d56a95</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>10k 1%</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b4b6c740-52e8-448c-b295-ed68bfae54e3</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>10k 1%</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6caad021-aeaf-4315-ac28-ea0007d8be65</tstamps>
+    </comp>
+    <comp ref="RN1">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_Array_Convex_4x1206</footprint>
+      <libsource lib="Device" part="R_Pack04_Split" description="4 resistor network, parallel topology, split"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="4 resistor network, parallel topology, split"/>
+      <property name="ki_keywords" value="R network parallel topology isolated"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f48556c5-5518-4ab6-923e-307a46e87004 c4f3fd32-60b4-4f74-9111-c8b628851259 f49b664b-9191-4d80-b72e-6db4eb7705ef 3cb534dd-b554-4e57-a79e-685e4c01fb69</tstamps>
+    </comp>
+    <comp ref="SW1">
+      <value>RotaryEncoder_Switch</value>
+      <footprint>Misc_custom:PEC09-2320F-S0015</footprint>
+      <libsource lib="Device" part="RotaryEncoder_Switch" description="Rotary encoder, dual channel, incremental quadrate outputs, with switch"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Rotary encoder, dual channel, incremental quadrate outputs, with switch"/>
+      <property name="ki_keywords" value="rotary switch encoder switch push button"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4cfb5377-e10f-4e66-98d3-acee5bdd9e66</tstamps>
+    </comp>
+    <comp ref="TP1">
+      <value>TestPoint</value>
+      <footprint>TestPoint:TestPoint_Loop_D2.60mm_Drill1.6mm_Beaded</footprint>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="test point"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4af4670f-85ee-41e2-be3d-52f5fa5a015d</tstamps>
+    </comp>
+    <comp ref="TP2">
+      <value>TestPoint</value>
+      <footprint>TestPoint:TestPoint_Loop_D2.60mm_Drill1.6mm_Beaded</footprint>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="test point"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3806e82e-6dbe-497b-a543-bdae2e32e076</tstamps>
+    </comp>
+    <comp ref="TP3">
+      <value>TestPoint</value>
+      <footprint>TestPoint:TestPoint_Loop_D2.60mm_Drill1.6mm_Beaded</footprint>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="test point"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>af5afb84-ee15-48b1-8a00-ded0f8eb13da</tstamps>
+    </comp>
+    <comp ref="TP4">
+      <value>TestPoint</value>
+      <footprint>TestPoint:TestPoint_Loop_D2.60mm_Drill1.6mm_Beaded</footprint>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="test point"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>76dc51bb-6870-4b4f-a721-8a1aa11f0342</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="B3B-PH-SM4-TB_LF__SN_" part="B3B-PH-SM4-TB(LF)(SN)">
+      <docs>https://www.digikey.com/product-detail/en/jst-sales-america-inc/B3B-PH-SM4-TB_LF__SN_/455-1735-1-ND/926832?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol</docs>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">B3B-PH-SM4-TB(LF)(SN)</field>
+        <field name="Footprint">JST_B3B-PH-SM4-TB(LF)(SN)</field>
+        <field name="Datasheet">https://www.digikey.com/product-detail/en/jst-sales-america-inc/B3B-PH-SM4-TB_LF__SN_/455-1735-1-ND/926832?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol</field>
+        <field name="Field4">B3B-PH-SM4-TB_LF__SN_</field>
+        <field name="Field5">PH Series 3 Position 2 mm Pitch Crimp Surface Mount Top Entry Shrouded Header</field>
+        <field name="Field6">2010 JST</field>
+        <field name="Field7">JST Sales</field>
+        <field name="Field8">455-1735-1-ND</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Barrel_Jack_Switch">
+      <description>DC Barrel Jack with an internal switch</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>BarrelJack*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Barrel_Jack_Switch</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Conn_01x04_Male">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04_Male</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Screw_Terminal_01x02">
+      <description>Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TerminalBlock*:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Screw_Terminal_01x02</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="TestPoint">
+      <description>test point</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Pin*</fp>
+        <fp>Test*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TestPoint</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Q_NMOS_GSD">
+      <description>N-MOSFET transistor, gate/source/drain</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Q_NMOS_GSD</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R_Pack04_Split">
+      <description>4 resistor network, parallel topology, split</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>DIP*</fp>
+        <fp>SOIC*</fp>
+        <fp>R*Array*Concave*</fp>
+        <fp>R*Array*Convex*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">RN</field>
+        <field name="Value">R_Pack04_Split</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="R1.1" type="passive"/>
+        <pin num="2" name="R2.1" type="passive"/>
+        <pin num="3" name="R3.1" type="passive"/>
+        <pin num="4" name="R4.1" type="passive"/>
+        <pin num="5" name="R4.2" type="passive"/>
+        <pin num="6" name="R3.2" type="passive"/>
+        <pin num="7" name="R2.2" type="passive"/>
+        <pin num="8" name="R1.2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R_US">
+      <description>Resistor, US symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R_US</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="RotaryEncoder_Switch">
+      <description>Rotary encoder, dual channel, incremental quadrate outputs, with switch</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>RotaryEncoder*Switch*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">RotaryEncoder_Switch</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="A" name="A" type="passive"/>
+        <pin num="B" name="B" type="passive"/>
+        <pin num="C" name="C" type="passive"/>
+        <pin num="S1" name="S1" type="passive"/>
+        <pin num="S2" name="S2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Light-and-Sugar-Controller-rescue" part="Arduino_UNO_R3-MCU_Module">
+      <footprints>
+        <fp>Arduino*UNO*R3*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">A</field>
+        <field name="Value">Arduino_UNO_R3-MCU_Module</field>
+        <field name="Footprint">Module:Arduino_UNO_R3</field>
+      </fields>
+      <pins>
+        <pin num="1" name="NC" type="no_connect"/>
+        <pin num="2" name="IOREF" type="output"/>
+        <pin num="3" name="RESET" type="input"/>
+        <pin num="4" name="3V3" type="power_out"/>
+        <pin num="5" name="+5V" type="power_out"/>
+        <pin num="6" name="GND" type="power_in"/>
+        <pin num="7" name="GND" type="power_in"/>
+        <pin num="8" name="VIN" type="power_in"/>
+        <pin num="9" name="A0" type="bidirectional"/>
+        <pin num="10" name="A1" type="bidirectional"/>
+        <pin num="11" name="A2" type="bidirectional"/>
+        <pin num="12" name="A3" type="bidirectional"/>
+        <pin num="13" name="A4/SDA" type="bidirectional"/>
+        <pin num="14" name="A5/SCL" type="bidirectional"/>
+        <pin num="15" name="D0/RX" type="bidirectional"/>
+        <pin num="16" name="D1/TX" type="bidirectional"/>
+        <pin num="17" name="D2" type="bidirectional"/>
+        <pin num="18" name="D3" type="bidirectional"/>
+        <pin num="19" name="D4" type="bidirectional"/>
+        <pin num="20" name="D5" type="bidirectional"/>
+        <pin num="21" name="D6" type="bidirectional"/>
+        <pin num="22" name="D7" type="bidirectional"/>
+        <pin num="23" name="D8" type="bidirectional"/>
+        <pin num="24" name="D9" type="bidirectional"/>
+        <pin num="25" name="D10" type="bidirectional"/>
+        <pin num="26" name="D11" type="bidirectional"/>
+        <pin num="27" name="D12" type="bidirectional"/>
+        <pin num="28" name="D13" type="bidirectional"/>
+        <pin num="29" name="GND" type="power_in"/>
+        <pin num="30" name="AREF" type="input"/>
+        <pin num="31" name="SDA" type="bidirectional"/>
+        <pin num="32" name="SCL" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="Light-and-Sugar-Controller-rescue" part="CP1-Device">
+      <footprints>
+        <fp>CP_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CP1-Device</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole">
+      <description>Mounting Hole without connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+        <field name="Datasheet">~</field>
+      </fields>
+    </libpart>
+    <libpart lib="Misc_Custom" part="F0512S-1WR3">
+      <fields>
+        <field name="Reference">PS</field>
+        <field name="Value">F0512S-1WR3</field>
+        <field name="Footprint">CONV_F0512S-1WR3</field>
+        <field name="PARTREV">2021.12.28-A/6</field>
+        <field name="MANUFACTURER">Mornsun</field>
+        <field name="MAXIMUM_PACKAGE_HEIGHT">10.16 mm</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VIN" type="input"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="5" name="0V" type="passive"/>
+        <pin num="7" name="+VO" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="Misc_Custom" part="M8S-04PFFR-SF8001">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">M8S-04PFFR-SF8001</field>
+        <field name="Footprint">AMPHENOL_M8S-04PFFR-SF8001</field>
+        <field name="PARTREV">B</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+        <field name="MAXIMUM_PACKAGE_HEIGHT">12.581 mm</field>
+        <field name="MANUFACTURER">Amphenol</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+        <pin num="G1" name="GND" type="power_in"/>
+        <pin num="G2" name="GND__1" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Temperature-Controller-V_2-rescue" part="D_ALT-Device">
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_ALT-Device</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="dk_Transistors-FETs-MOSFETs-Arrays" part="BSS138DW-7-F">
+      <description>MOSFET 2N-CH 50V 0.2A SC70-6</description>
+      <docs>https://www.diodes.com/assets/Datasheets/ds30203.pdf</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">BSS138DW-7-F</field>
+        <field name="Footprint">digikey-footprints:SOT-363</field>
+        <field name="Datasheet">https://www.diodes.com/assets/Datasheets/ds30203.pdf</field>
+        <field name="Digi-Key_PN">BSS138DW-FDICT-ND</field>
+        <field name="MPN">BSS138DW-7-F</field>
+        <field name="Category">Discrete Semiconductor Products</field>
+        <field name="Family">Transistors - FETs, MOSFETs - Arrays</field>
+        <field name="DK_Datasheet_Link">https://www.diodes.com/assets/Datasheets/ds30203.pdf</field>
+        <field name="DK_Detail_Page">/product-detail/en/diodes-incorporated/BSS138DW-7-F/BSS138DW-FDICT-ND/808541</field>
+        <field name="Description">MOSFET 2N-CH 50V 0.2A SC70-6</field>
+        <field name="Manufacturer">Diodes Incorporated</field>
+        <field name="Status">Active</field>
+      </fields>
+      <pins>
+        <pin num="1" name="S2" type="input"/>
+        <pin num="2" name="G2" type="input"/>
+        <pin num="3" name="D1" type="output"/>
+        <pin num="4" name="S1" type="input"/>
+        <pin num="5" name="G1" type="input"/>
+        <pin num="6" name="D2" type="output"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector">
+      <uri>/Applications/KiCad/KiCad.app/Contents/SharedSupport/symbols//Connector.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>/Applications/KiCad/KiCad.app/Contents/SharedSupport/symbols//Device.kicad_sym</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>/Applications/KiCad/KiCad.app/Contents/SharedSupport/symbols//Mechanical.kicad_sym</uri>
+    </library>
+    <library logical="Misc_Custom">
+      <uri>/Users/jazzlw/kicad_libraries/Misc_Custom.kicad_sym</uri>
+    </library>
+    <library logical="dk_Transistors-FETs-MOSFETs-Arrays">
+      <uri>/Users/jazzlw/kicad_libraries/digikey-kicad-library/digikey-symbols/dk_Transistors-FETs-MOSFETs-Arrays.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+3V3">
+      <node ref="A1" pin="4" pinfunction="3V3" pintype="power_out"/>
+      <node ref="J2" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="G2" pintype="input"/>
+      <node ref="Q1" pin="5" pinfunction="G1" pintype="input"/>
+      <node ref="RN1" pin="5" pinfunction="R4.2" pintype="passive"/>
+      <node ref="RN1" pin="7" pinfunction="R2.2" pintype="passive"/>
+    </net>
+    <net code="2" name="+5V">
+      <node ref="A1" pin="5" pinfunction="+5V" pintype="power_out"/>
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="J4" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="PS1" pin="7" pinfunction="+VO" pintype="output"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="RN1" pin="6" pinfunction="R3.2" pintype="passive"/>
+      <node ref="RN1" pin="8" pinfunction="R1.2" pintype="passive"/>
+    </net>
+    <net code="3" name="+12V">
+      <node ref="A1" pin="8" pinfunction="VIN" pintype="power_in"/>
+      <node ref="C7" pin="2" pintype="passive"/>
+    </net>
+    <net code="4" name="/0(Rx)">
+      <node ref="A1" pin="15" pinfunction="D0/RX" pintype="bidirectional"/>
+    </net>
+    <net code="5" name="/1(Tx)">
+      <node ref="A1" pin="16" pinfunction="D1/TX" pintype="bidirectional"/>
+    </net>
+    <net code="6" name="/2">
+      <node ref="A1" pin="17" pinfunction="D2" pintype="bidirectional"/>
+      <node ref="SW1" pin="B" pinfunction="B" pintype="passive"/>
+    </net>
+    <net code="7" name="/3(**)">
+      <node ref="A1" pin="18" pinfunction="D3" pintype="bidirectional"/>
+      <node ref="SW1" pin="A" pinfunction="A" pintype="passive"/>
+    </net>
+    <net code="8" name="/4">
+      <node ref="A1" pin="19" pinfunction="D4" pintype="bidirectional"/>
+      <node ref="SW1" pin="S2" pinfunction="S2" pintype="passive"/>
+    </net>
+    <net code="9" name="/5(**)">
+      <node ref="A1" pin="20" pinfunction="D5" pintype="bidirectional"/>
+    </net>
+    <net code="10" name="/6(**)">
+      <node ref="A1" pin="21" pinfunction="D6" pintype="bidirectional"/>
+    </net>
+    <net code="11" name="/7">
+      <node ref="A1" pin="22" pinfunction="D7" pintype="bidirectional"/>
+      <node ref="J3" pin="3" pinfunction="3" pintype="passive"/>
+    </net>
+    <net code="12" name="/8">
+      <node ref="A1" pin="23" pinfunction="D8" pintype="bidirectional"/>
+      <node ref="J4" pin="3" pinfunction="3" pintype="passive"/>
+    </net>
+    <net code="13" name="/9(**)">
+      <node ref="A1" pin="24" pinfunction="D9" pintype="bidirectional"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+    </net>
+    <net code="14" name="/10(**{slash}SS)">
+      <node ref="A1" pin="25" pinfunction="D10" pintype="bidirectional"/>
+    </net>
+    <net code="15" name="/11(**{slash}MOSI)">
+      <node ref="A1" pin="26" pinfunction="D11" pintype="bidirectional"/>
+    </net>
+    <net code="16" name="/12(MISO)">
+      <node ref="A1" pin="27" pinfunction="D12" pintype="bidirectional"/>
+    </net>
+    <net code="17" name="/13(SCK)">
+      <node ref="A1" pin="28" pinfunction="D13" pintype="bidirectional"/>
+    </net>
+    <net code="18" name="/A0">
+      <node ref="A1" pin="9" pinfunction="A0" pintype="bidirectional"/>
+    </net>
+    <net code="19" name="/A1">
+      <node ref="A1" pin="10" pinfunction="A1" pintype="bidirectional"/>
+    </net>
+    <net code="20" name="/A2">
+      <node ref="A1" pin="11" pinfunction="A2" pintype="bidirectional"/>
+    </net>
+    <net code="21" name="/A3">
+      <node ref="A1" pin="12" pinfunction="A3" pintype="bidirectional"/>
+    </net>
+    <net code="22" name="/A4">
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="J5" pin="3" pinfunction="3" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+    </net>
+    <net code="23" name="/A4(SDA)">
+      <node ref="A1" pin="13" pinfunction="A4/SDA" pintype="bidirectional"/>
+      <node ref="Q1" pin="6" pinfunction="D2" pintype="output"/>
+      <node ref="RN1" pin="1" pinfunction="R1.1" pintype="passive"/>
+    </net>
+    <net code="24" name="/A5">
+      <node ref="C8" pin="1" pintype="passive"/>
+      <node ref="J6" pin="1" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+    </net>
+    <net code="25" name="/A5(SCL)">
+      <node ref="A1" pin="14" pinfunction="A5/SCL" pintype="bidirectional"/>
+      <node ref="Q1" pin="3" pinfunction="D1" pintype="output"/>
+      <node ref="RN1" pin="3" pinfunction="R3.1" pintype="passive"/>
+    </net>
+    <net code="26" name="/SCL_3V">
+      <node ref="J2" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="Q1" pin="4" pinfunction="S1" pintype="input"/>
+      <node ref="RN1" pin="4" pinfunction="R4.1" pintype="passive"/>
+    </net>
+    <net code="27" name="/SDA_3V">
+      <node ref="J2" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="Q1" pin="1" pinfunction="S2" pintype="input"/>
+      <node ref="RN1" pin="2" pinfunction="R2.1" pintype="passive"/>
+    </net>
+    <net code="28" name="GND">
+      <node ref="A1" pin="29" pinfunction="GND" pintype="power_in"/>
+      <node ref="A1" pin="6" pinfunction="GND" pintype="power_in"/>
+      <node ref="A1" pin="7" pinfunction="GND" pintype="power_in"/>
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="C8" pin="2" pintype="passive"/>
+      <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J3" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="J4" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="J5" pin="4" pinfunction="4" pintype="passive"/>
+      <node ref="J5" pin="G1" pinfunction="GND" pintype="power_in"/>
+      <node ref="J5" pin="G2" pinfunction="GND__1" pintype="power_in"/>
+      <node ref="J6" pin="2" pintype="passive"/>
+      <node ref="J6" pin="3" pintype="passive"/>
+      <node ref="PS1" pin="2" pinfunction="GND" pintype="power_in"/>
+      <node ref="PS1" pin="5" pinfunction="0V" pintype="passive"/>
+      <node ref="Q2" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="SW1" pin="C" pinfunction="C" pintype="passive"/>
+      <node ref="SW1" pin="S1" pinfunction="S1" pintype="passive"/>
+      <node ref="TP1" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="29" name="Net-(D1-A)">
+      <node ref="D1" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="J5" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="Q2" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="TP3" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="30" name="Net-(Q2-G)">
+      <node ref="Q2" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="TP4" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="31" name="VSS">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="J5" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="PS1" pin="1" pinfunction="VIN" pintype="input"/>
+      <node ref="TP2" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="32" name="unconnected-(A1-AREF-Pad30)">
+      <node ref="A1" pin="30" pinfunction="AREF" pintype="input+no_connect"/>
+    </net>
+    <net code="33" name="unconnected-(A1-IOREF-Pad2)">
+      <node ref="A1" pin="2" pinfunction="IOREF" pintype="output+no_connect"/>
+    </net>
+    <net code="34" name="unconnected-(A1-NC-Pad1)">
+      <node ref="A1" pin="1" pinfunction="NC" pintype="no_connect"/>
+    </net>
+    <net code="35" name="unconnected-(A1-RESET-Pad3)">
+      <node ref="A1" pin="3" pinfunction="RESET" pintype="input+no_connect"/>
+    </net>
+    <net code="36" name="unconnected-(A1-SCL-Pad32)">
+      <node ref="A1" pin="32" pinfunction="SCL" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="37" name="unconnected-(A1-SDA-Pad31)">
+      <node ref="A1" pin="31" pinfunction="SDA" pintype="bidirectional+no_connect"/>
+    </net>
+  </nets>
+</export>
