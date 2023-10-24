@@ -6,7 +6,7 @@
 // #include <hd44780.h> // main hd44780 header
 // #include <hd44780ioClass/hd44780_I2Cexp.h> // i2c expander i/o class header
 #include "BallHeater.h"
-// #include "SerialComms.h"
+#include "SerialComms.h"
 #include <PID_v1.h>
 
 #include <SerLCD.h> //Click here to get the library: http://librarymanager/All#SparkFun_SerLCD
@@ -48,7 +48,7 @@ SerLCD lcd; // Initialize the library with default I2C address 0x72
 Rotary rotary = Rotary(ROTARY_1, ROTARY_2);
 
 BallHeater ball_heater;
-// SerialComms serial_comms = SerialComms(&ball_heater);
+SerialComms serial_comms = SerialComms(&ball_heater);
 int state = 0;
 unsigned long timestamp = 0;
 
@@ -192,7 +192,7 @@ void loop()
 {
     check_encoder();
     ball_heater.tick();
-    //    serial_comms.tick();
+    serial_comms.tick();
     String control_mode_string = get_control_mode_string(ball_heater.get_control_mode());
     float target_temp = ball_heater.get_target_temp();
     float heater_temp = ball_heater.get_heater_temp();
