@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 
+import csv
+import os
 import struct
+import threading
 import time
 from sys import platform
 
 import serial
+from list_ports import list_ports
 
 HEATER_COMMANDS = {
     "status": {"code": 0, "arg_names": [], "arg_types": []},
@@ -47,6 +51,8 @@ HEATER_COMMANDS = {
 
 
 class BallHeaterDriver:
+    """Class to interface with the ball heater controller PCB."""
+
     def __init__(self, port=None):
         self.port = port
 
@@ -57,6 +63,7 @@ class BallHeaterDriver:
         self.max_send_attempts = 5
         # todo: fix this to get from controller.
         self.log_fieldnames = HEATER_COMMANDS["return_status_format"]["arg_names"]
+        self.log_fieldnames = ["time"] + self.log_fieldnames
 
         self.type_lookup = {"uint8": "B", "uint16": "H", "float": "f"}
         self.command_def_dict = HEATER_COMMANDS
@@ -137,31 +144,96 @@ class BallHeaterDriver:
             return False, None
 
         returned_data = in_data.split(b"\xFE\xED")[0]
-        if self.command_name != "status":
+
+        if self.command_name not in ["status", "return_pid_parameters"]:
             return True, returned_data
 
-        else:
+        if self.command_name == "return_pid_parameters":
+            arg_names = ["kp", "ki", "kd"]
+            arg_types = ["float", "float", "float"]
+
+        elif self.command_name == "status":
             # process and unpack status data.
             arg_names = self.command_def_dict["return_status_format"]["arg_names"]
             arg_types = self.command_def_dict["return_status_format"]["arg_types"]
-            arg_format_string = "".join(
-                [self.type_lookup[arg_type] for arg_type in arg_types]
-            )
-            expected_size = struct.calcsize(arg_format_string)
 
-            returned_data = in_data.split(b"\xFE\xED")[0]
+        arg_format_string = "".join(
+            [self.type_lookup[arg_type] for arg_type in arg_types]
+        )
+        expected_size = struct.calcsize(arg_format_string)
 
-            if len(returned_data) != expected_size:
-                self.ser.reset_input_buffer()
-                return False, None
-            else:
-                parsed_data = struct.unpack(arg_format_string, returned_data)
-                self.status_tries = 0
-                return True, {key: value for key, value in zip(arg_names, parsed_data)}
+        returned_data = in_data.split(b"\xFE\xED")[0]
+
+        if len(returned_data) != expected_size:
+            self.ser.reset_input_buffer()
+            return False, None
+        else:
+            parsed_data = struct.unpack(arg_format_string, returned_data)
+            self.status_tries = 0
+            return True, {key: value for key, value in zip(arg_names, parsed_data)}
+
+    def begin_logging(self, log_interval, log_file_path):
+        """Starts a loop to regularly get the  from the controller and record.
+
+        ::log_interval:: interval in seconds to get status and record it.
+        ::log_file_path::Path to csv file to save data to.
+        """
+        self.log_file_name = log_file_path
+        self.log_interval = log_interval
+        self.log_stop_event = threading.Event()
+        self.logging_thread = threading.Thread(target=self.logging_thread_call)
+        self.logging_thread.start()
+
+    def logging_thread_call(self):
+        """Function that runs in separate thread as a loop to log regularly until stopped."""
+        while not self.log_stop_event.is_set():
+            self.get_status_and_log()
+            time.sleep(self.log_interval)
+
+    def stop_logging(self):
+        """Stops the logging loop by setting the self.log_stop_event."""
+        self.log_stop_event.set()
+
+    def get_status_and_log(self):
+        """Gets the current status from the controller and logs to the logfile"""
+        current_status = self.send_command("status")
+        if current_status[0]:
+            log_file_exists = os.path.isfile(self.log_file_name)
+            with open(self.log_file_name, "a") as logfile:
+                csv_writer = csv.DictWriter(logfile, fieldnames=self.log_fieldnames)
+
+                if not log_file_exists:
+                    csv_writer.writeheader()
+
+                data = current_status[1]
+                if not isinstance(data, dict):
+                    print(f"data is not dict: {data}")
+                    return
+                if data:
+                    data["time"] = time.time()
+                    csv_writer.writerow(data)
 
 
 def main():
-    ball_heater = BallHeater()
+    ports = [
+        port
+        for port in list_ports()
+        if port["manufacturer"] is not None and "Silicon Labs" in port["manufacturer"]
+    ]
+    if len(ports) == 0:
+        print("No Silicon Labs ports found.")
+        return
+    elif len(ports) > 1:
+        print("Multiple Silicon Labs ports found, select one")
+        for i, port in ports:
+            print(f"{i}: {port['port']}")
+        port_index = int(input("Enter port index: "))
+        port = ports[port_index]
+    else:
+        print(f"Using port: {ports[0]['port']}")
+        port = ports[0]["port"]
+
+    ball_heater = BallHeaterDriver()
     status_dict = ball_heater.send_command("status")
     print(f"status: {status_dict}")
 
