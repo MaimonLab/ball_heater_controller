@@ -14,8 +14,8 @@
 
 #define ECHO_TO_SERIAL 0
 
-#define HEATER_MAX_PERCENT 50
-#define MAX_HEATER_TEMP 50
+#define HEATER_MAX_PERCENT 90
+#define MAX_HEATER_TEMP 60
 
 // Default Constructor
 //  BallHeater::BallHeater(){}
