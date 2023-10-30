@@ -92,9 +92,13 @@ void BallHeater::tick()
     {
         this->set_pwm(_pid_output);
     }
-    else
+    else if (_controller_mode == MANUAL_TEST)
     {
         _pid_output = _pwm_float; // keep pid updated with current sitch.
+    }
+    else
+    {
+        this->set_pwm(0);
     }
 }
 
@@ -116,10 +120,12 @@ void BallHeater::set_pwm(float pwm_goal)
     In manual mode the heater pwm float is adjusted directly
     whereas in local or remote mode the PID controller controls it
     based on the target_temp.
-    LOCAL_CONTROL 1
-    REMOTE_CONTROL 2
-    MANUAL_TEST 3
+        STANDBY 0
+        LOCAL_CONTROL 1
+        REMOTE_CONTROL 2
+        MANUAL_TEST 3
 
+        HIGH_TEMP_ERROR 6
  ---------------------------------------------------------*/
 void BallHeater::set_control_mode(byte mode)
 {
@@ -131,6 +137,10 @@ void BallHeater::set_control_mode(byte mode)
     }
     else
         _pid.SetMode(MANUAL);
+    if (_controller_mode == STANDBY || _controller_mode == HIGH_TEMP_ERROR)
+    {
+        this->set_pwm(0);
+    }
 }
 
 /*-------------------- set_pid_params -------------------------

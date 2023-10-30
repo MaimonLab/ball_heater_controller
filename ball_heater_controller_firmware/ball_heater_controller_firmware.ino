@@ -38,7 +38,7 @@
 #define ROTARY_1 3
 #define ROTARY_2 2
 
-#define TEMP_STEP 0.5F;
+#define TEMP_STEP 0.25F;
 
 #define WIRECLOCK 400000L // tell hd44780 example to use this i2c clock rate
 
@@ -76,11 +76,6 @@ void setup()
 
     //    Wire.setClock(WIRECLOCK);
     ball_heater.init();
-    ball_heater.set_control_mode(LOCAL_CONTROL);
-    //   Serial.begin(9600);
-    //   delay(3000);
-
-    // ball_heater.set_pwm(0.6);
 }
 
 /*-------------------- check_encoder -------------------------
@@ -119,13 +114,12 @@ void check_encoder(void)
         if (result == DIR_CW)
         {
             new_pwm = min(current_pwm + 2, max_pwm);
-            ball_heater.set_pwm(new_pwm);
         }
         else if (result == DIR_CCW)
         {
             new_pwm = max(current_pwm - 2, min_pwm);
-            ball_heater.set_pwm(new_pwm);
         }
+        ball_heater.set_pwm(new_pwm);
     }
 }
 
@@ -173,6 +167,8 @@ String get_control_mode_string(byte mode)
 {
     switch (mode)
     {
+    case STANDBY:
+        return "Standby";
     case LOCAL_CONTROL:
         return "Local";
     case REMOTE_CONTROL:
@@ -185,25 +181,26 @@ String get_control_mode_string(byte mode)
 }
 
 unsigned long last_time = 0;
-char heater_temp_string[5];
-char target_temp_string[5];
+char heater_temp_string[6];
+char target_temp_string[6];
 
 void loop()
 {
     check_encoder();
     ball_heater.tick();
     serial_comms.tick();
+
     String control_mode_string = get_control_mode_string(ball_heater.get_control_mode());
     float target_temp = ball_heater.get_target_temp();
     float heater_temp = ball_heater.get_heater_temp();
-    dtostrf(heater_temp, 4, 1, heater_temp_string);
-    dtostrf(target_temp, 4, 1, target_temp_string);
+    dtostrf(heater_temp, 4, 2, heater_temp_string);
+    dtostrf(target_temp, 4, 2, target_temp_string);
 
-    sprintf(line0, "%s. %3d  pwm",
+    sprintf(line0, "%s. %3d pwm",
             control_mode_string.c_str(),
             round(ball_heater.get_pwm_float()));
 
-    sprintf(line1, "g:%s cur:%s", target_temp_string, heater_temp_string);
+    sprintf(line1, "SP:%s C:%s", target_temp_string, heater_temp_string);
 
     update_display(200);
     if (millis() - last_time > 1000)

@@ -71,7 +71,7 @@ private:
 
     double _pid_input;
     double _pid_output;
-    double _kp = 10, _ki = 2, _kd = 0.1;
+    double _kp = 120, _ki = 0.2, _kd = 0.1;
     PID _pid = PID(&_pid_input, &_pid_output, &_target_temp,
                    _kp, _ki, _kd, DIRECT);
 };

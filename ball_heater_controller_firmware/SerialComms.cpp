@@ -274,6 +274,8 @@ int SerialComms::set_target_temp(byte *in_byte)
 {
     float target_temp = ByteToType::BytesToFloat((in_byte));
     _ball_heater->set_target_temp(target_temp);
+    if (_ball_heater->get_control_mode() != REMOTE_CONTROL)
+        _ball_heater->set_control_mode(REMOTE_CONTROL);
     return 0;
 }
 
