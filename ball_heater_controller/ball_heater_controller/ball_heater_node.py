@@ -157,35 +157,12 @@ class BallHeaterNode(Node):
             self.get_logger().error(f"failed to change control_mode {return_data}")
 
     def set_temp_callback(self, commands_msg):
-        all_fields = commands_msg.get_fields_and_field_types()
-
-        active_commands = []
-        for field, _ in all_fields.items():
-            if "active" in field:
-                field_active = getattr(commands_msg, field)
-                if field_active == True:
-                    command_name = field.split("_active")[0]
-                    active_commands.append(command_name)
-
-        for active_command in active_commands:
-            sub_message = getattr(commands_msg, active_command)
-            sub_fields = sub_message.get_fields_and_field_types()
-
-            arg_list = []
-            for field_name, _ in sub_fields.items():
-                argument = getattr(sub_message, field_name)
-                if field_name == "control_mode":
-                    argument = self.ball_heater.control_mode_dict[argument.lower()]
-                arg_list.append(argument)
-
-            if self.verbose_logging:
-                self.get_logger().info(f"{active_command}: {arg_list}")
-
-            success, return_data = self.ball_heater.send_command(
-                active_command, arg_list
-            )
-            if not success:
-                self.get_logger().warn(f"Unsuccessful command: {active_command}")
+        target_temp = commands_msg.target_temp
+        success, return_data = self.ball_heater.send_command(
+            "set_target_temp", [target_temp]
+        )
+        if not success:
+            self.get_logger().warn(f"Unsuccessful set temp command")
 
     def publish_status(self):
         status_msg = BallHeaterStatus()
