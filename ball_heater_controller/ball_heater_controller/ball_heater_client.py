@@ -14,8 +14,8 @@ class ExampleBallHeaterClientNode(Node):
         super().__init__("ball_heater_client")
 
         default_param = {
-            "ball_heater_status_topic": "ball_heater/status_topic",
-            "ball_heater_set_temp_topic": "ball_heater/temperature_commands",
+            "ball_heater_status_topic": "ball_heater_controller/status_topic",
+            "ball_heater_set_temp_topic": "ball_heater_controller/temperature_commands",
             "temperature_setpoint": 35.0,
         }
         for key, value in default_param.items():

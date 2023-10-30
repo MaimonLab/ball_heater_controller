@@ -6,5 +6,7 @@ ball_heater_node:
   ros__parameters:
     ball_heater_set_temp_topic: ball_heater/set_temp_topic_test
     ball_heater_status_topic: ball_heater/status_topic_test
-    serial_port: /dev/ttyACM0
-    # device_serial_number: "7573532303035150B2D1"
+    # serial_port: /dev/ttyACM0
+    device_serial_number: "4006a22f2575ec11bcf72b71c00adeb6"
+
+

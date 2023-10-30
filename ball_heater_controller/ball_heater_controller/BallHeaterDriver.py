@@ -8,7 +8,12 @@ import time
 from sys import platform
 
 import serial
-from list_ports import list_ports
+
+if __name__ == "__main__":
+    from list_ports import list_ports
+else:
+    from ball_heater_controller.list_ports import list_ports
+
 
 HEATER_COMMANDS = {
     "status": {"code": 0, "arg_names": [], "arg_types": []},

@@ -8,7 +8,7 @@ def generate_launch_description():
     workspace = get_package_share_directory("ball_heater_controller").split("/install")[
         0
     ]
-    config_file = f"{workspace}/src/ball_heater/config/example_config.yaml"
+    config_file = f"{workspace}/src/ball_heater_controller/ball_heater_controller/config/example_config.yaml"
 
     example_ball_heater_client = Node(
         package="ball_heater_controller",

@@ -17,7 +17,8 @@ from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy
 
 """
-When not using the compiled version of the node, we need to import from a different folder structure.
+When not using the compiled version of the node, we need to import 
+    from a different folder structure.
 This is the case when executing the node directly: 
     python3 ball_heater.py
 """
@@ -48,8 +49,8 @@ class BallHeaterNode(Node):
         super().__init__("ball_heater_node")
 
         default_param = {
-            "ball_heater_set_temp_topic": "ball_heater/set_temp_topic",
-            "ball_heater_status_topic": "ball_heater/status_topic",
+            "ball_heater_set_temp_topic": "ball_heater_controller/set_temp_topic",
+            "ball_heater_status_topic": "ball_heater_controller/status_topic",
             "serial_port": "/dev/ttyACM0",
             "device_serial_number": None,
             "verbose_logging": False,
