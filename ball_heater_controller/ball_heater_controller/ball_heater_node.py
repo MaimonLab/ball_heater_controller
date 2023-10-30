@@ -22,7 +22,7 @@ This is the case when executing the node directly:
     python3 ball_heater.py
 """
 if __name__ == "__main__":
-    from BallHeaterDriver import BallHeater
+    from BallHeaterDriver import BallHeaterDriver
 else:
     from ball_heater_controller.BallHeaterDriver import BallHeaterDriver
 

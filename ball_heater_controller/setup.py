@@ -23,9 +23,9 @@ setup(
     tests_require=["pytest"],
     entry_points={
         "console_scripts": [
-            "ball_heater_node = ball_heater.ball_heater_node:main",
-            "ball_heater_client = ball_heater.ball_heater_client:main",
-            "list_ports = ball_heater.list_ports:main",
+            "ball_heater_node = ball_heater_controller.ball_heater_node:main",
+            "ball_heater_client = ball_heater_controller.ball_heater_client:main",
+            "list_ports = ball_heater_controller.list_ports:main",
         ],
     },
 )
