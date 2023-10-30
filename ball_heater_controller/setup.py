@@ -2,7 +2,7 @@ import glob
 
 from setuptools import setup
 
-package_name = "ball_heater"
+package_name = "ball_heater_controller"
 
 setup(
     name=package_name,

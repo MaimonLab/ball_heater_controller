@@ -22,9 +22,9 @@ This is the case when executing the node directly:
     python3 ball_heater.py
 """
 if __name__ == "__main__":
-    from BallHeater import BallHeater
+    from BallHeaterDriver import BallHeater
 else:
-    from ball_heater.BallHeater import BallHeater
+    from ball_heater_controller.BallHeaterDriver import BallHeaterDriver
 
 WORKSPACE = get_package_share_directory("eternarig_experiment_logic").split("/install")[
     0
@@ -99,19 +99,19 @@ class BallHeaterNode(Node):
         if port_to_try != "not specified":
             try:
                 # self.rig_controller = ArduinoInterface(port_to_try)
-                self.ball_heater = BallHeater(port_to_try)
+                self.ball_heater = BallHeaterDriver(port_to_try)
                 if port_to_try is not None:
                     self.get_logger().info(f"Opening Serial Port {port_to_try}")
             except serial.SerialException as e:
                 self.get_logger().error(
                     f"Error opening serial port {port_to_try}. Using mock serial"
                 )
-                self.ball_heater = BallHeater()
+                self.ball_heater = BallHeaterDriver()
         else:
             self.get_logger().error(
                 f"No port or serial number specified. Using mock serial"
             )
-            self.ball_heater = BallHeater()
+            self.ball_heater = BallHeaterDriver()
 
         qos_subscription = QoSProfile(
             depth=10,

@@ -4,7 +4,6 @@ import sys
 import time
 
 import rclpy
-from ball_heater.BallHeater import BallHeater
 from ball_heater_interfaces.msg import BallHeaterSetTemp, BallHeaterStatus
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy
