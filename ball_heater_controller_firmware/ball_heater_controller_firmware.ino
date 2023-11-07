@@ -35,8 +35,8 @@
 // A4
 // A5
 
-#define ROTARY_1 3
-#define ROTARY_2 2
+#define ROTARY_1 2
+#define ROTARY_2 3
 #define ROTARY_SWITCH 4
 #define SWITCH_ON_TIME 1000
 
@@ -55,10 +55,15 @@ int state = 0;
 unsigned long timestamp = 0;
 unsigned long switch_on_time = 0;
 bool switch_on = false;
+int last_control_mode = -1;
+int current_control_mode = -1;
 
 // Screen Buffer
 char line0[17];
 char line1[17];
+
+char target_temp_buff[6];
+char heater_temp_buff[6];
 
 void setup()
 {
@@ -90,6 +95,7 @@ void setup()
  ---------------------------------------------------------*/
 void check_encoder(void)
 {
+    // Check if the rotary switch is on and if it has been on for long enough
     if (digitalRead(ROTARY_SWITCH) == LOW)
     {
         if (!switch_on)
@@ -99,7 +105,7 @@ void check_encoder(void)
         }
         else if (millis() - switch_on_time > SWITCH_ON_TIME)
         {
-            int current_control_mode = ball_heater.get_control_mode();
+            current_control_mode = ball_heater.get_control_mode();
             switch (current_control_mode)
             {
             case STANDBY:
@@ -121,6 +127,7 @@ void check_encoder(void)
         switch_on = false;
     }
 
+    // Check if the rotary encoder has been turned, and do stuff if so
     unsigned char result = rotary.process();
     if (result == DIR_NONE)
         return;
@@ -166,7 +173,7 @@ void check_encoder(void)
 void mySetCursor(byte col, byte row, int delay_ms)
 {
     int row_offsets[] = {0x00, 0x40, 0x14, 0x54};
-    // kepp variables in bounds
+    // keep variables in bounds
     // Explicitly cast numeric literals to type byte to avoid ESP32 and ESP8266 compile errors
     row = max((byte)0, row);              // row cannot be less than 0
     row = min(row, (byte)(MAX_ROWS - 1)); // row cannot be greater than max rows
@@ -187,6 +194,26 @@ void update_display(int interval)
     digitalWrite(7, HIGH);
     if (millis() % interval == 0)
     {
+        current_control_mode = ball_heater.get_control_mode();
+        if (last_control_mode != current_control_mode)
+        {
+            last_control_mode = current_control_mode;
+            switch (current_control_mode)
+            {
+            case STANDBY:
+                lcd.setBacklight(0, 0, 128); // Set backlight to dim blue
+                break;
+            case LOCAL_CONTROL:
+                lcd.setBacklight(255, 0, 0); // Set backlight to red
+                break;
+            case REMOTE_CONTROL:
+                lcd.setBacklight(255, 0, 255); // Set backlight to purple
+                break;
+            case HIGH_TEMP_ERROR:
+                lcd.setBacklight(255, 255, 0); // Set backlight to yellow
+                break;
+            }
+        }
         // lcd.setCursor(0, 0);
         mySetCursor(0, 0, 5);
         lcd.print(line0);
@@ -216,10 +243,6 @@ String get_control_mode_string(byte mode)
     }
 }
 
-unsigned long last_time = 0;
-char target_temp_buff[6];
-char heater_temp_buff[6];
-
 void loop()
 {
     check_encoder();
@@ -233,6 +256,7 @@ void loop()
     dtostrf(heater_temp, 4, 2, heater_temp_buff);
 
     digitalWrite(5, HIGH);
+
     sprintf(line0, "%s. %3d pwm",
             control_mode_string.c_str(),
             round(ball_heater.get_pwm_float()));
@@ -240,17 +264,8 @@ void loop()
     sprintf(line1, "SP:%s C:%s",
             String(target_temp_buff).substring(0, 5).c_str(),
             String(heater_temp_buff).substring(0, 5).c_str());
+
     digitalWrite(5, LOW);
 
     update_display(200);
-    if (millis() - last_time > 1000)
-    {
-        // Serial.println(ball_heater.get_control_mode());
-        // Serial.println(heater_temp);
-        // Serial.println(round(heater_temp));
-        // Serial.println(heater_temp_buff);
-        // Serial.println(line0);
-        // Serial.println(line1);
-        // last_time = millis();
-    }
 }
