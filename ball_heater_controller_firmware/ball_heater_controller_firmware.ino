@@ -37,6 +37,8 @@
 
 #define ROTARY_1 3
 #define ROTARY_2 2
+#define ROTARY_SWITCH 4
+#define SWITCH_ON_TIME 1000
 
 #define TEMP_STEP 0.25F;
 
@@ -51,6 +53,8 @@ BallHeater ball_heater;
 SerialComms serial_comms = SerialComms(&ball_heater);
 int state = 0;
 unsigned long timestamp = 0;
+unsigned long switch_on_time = 0;
+bool switch_on = false;
 
 // Screen Buffer
 char line0[17];
@@ -58,9 +62,11 @@ char line1[17];
 
 void setup()
 {
-    // pinMode(9, OUTPUT);
-    pinMode(2, INPUT_PULLUP);
-    pinMode(3, INPUT_PULLUP);
+    pinMode(5, OUTPUT);
+    pinMode(7, OUTPUT);
+
+    // pinMode(2);
+    // pinMode(3);
     Serial.begin(115200);
     Wire.begin();
     // lcd.begin(16, 2);
@@ -79,11 +85,41 @@ void setup()
 }
 
 /*-------------------- check_encoder -------------------------
-      Checks if the rotary encoder has been turned and uptades the values
-      accordingly.
+      Checks if the rotary encoder has been turned and updates the values
+      accordingly. Also checks the switch and changes the control mode.
  ---------------------------------------------------------*/
 void check_encoder(void)
 {
+    if (digitalRead(ROTARY_SWITCH) == LOW)
+    {
+        if (!switch_on)
+        {
+            switch_on = true;
+            switch_on_time = millis();
+        }
+        else if (millis() - switch_on_time > SWITCH_ON_TIME)
+        {
+            int current_control_mode = ball_heater.get_control_mode();
+            switch (current_control_mode)
+            {
+            case STANDBY:
+                ball_heater.set_control_mode(LOCAL_CONTROL);
+                break;
+            case LOCAL_CONTROL:
+                ball_heater.set_control_mode(STANDBY);
+                break;
+            case REMOTE_CONTROL:
+                ball_heater.set_control_mode(STANDBY);
+                break;
+            }
+            switch_on = false;
+        }
+    }
+
+    else
+    {
+        switch_on = false;
+    }
 
     unsigned char result = rotary.process();
     if (result == DIR_NONE)
@@ -148,19 +184,19 @@ void mySetCursor(byte col, byte row, int delay_ms)
  ---------------------------------------------------------*/
 void update_display(int interval)
 {
-    // digitalWrite(3, HIGH);
+    digitalWrite(7, HIGH);
     if (millis() % interval == 0)
     {
-        lcd.setCursor(0, 0);
-        // mySetCursor(0, 0, 5);
+        // lcd.setCursor(0, 0);
+        mySetCursor(0, 0, 5);
         lcd.print(line0);
         // lcd.clear();
         // lcd.print(strcat(line0, line1));
-        lcd.setCursor(0, 1);
-        // mySetCursor(0, 1, 5);
+        // lcd.setCursor(0, 1);
+        mySetCursor(0, 1, 5);
         lcd.print(line1);
     }
-    // digitalWrite(3, LOW);
+    digitalWrite(7, LOW);
 }
 
 String get_control_mode_string(byte mode)
@@ -181,8 +217,8 @@ String get_control_mode_string(byte mode)
 }
 
 unsigned long last_time = 0;
-char heater_temp_string[6];
-char target_temp_string[6];
+char target_temp_buff[6];
+char heater_temp_buff[6];
 
 void loop()
 {
@@ -193,14 +229,18 @@ void loop()
     String control_mode_string = get_control_mode_string(ball_heater.get_control_mode());
     float target_temp = ball_heater.get_target_temp();
     float heater_temp = ball_heater.get_heater_temp();
-    dtostrf(heater_temp, 4, 2, heater_temp_string);
-    dtostrf(target_temp, 4, 2, target_temp_string);
+    dtostrf(target_temp, 4, 2, target_temp_buff);
+    dtostrf(heater_temp, 4, 2, heater_temp_buff);
 
+    digitalWrite(5, HIGH);
     sprintf(line0, "%s. %3d pwm",
             control_mode_string.c_str(),
             round(ball_heater.get_pwm_float()));
 
-    sprintf(line1, "SP:%s C:%s", target_temp_string, heater_temp_string);
+    sprintf(line1, "SP:%s C:%s",
+            String(target_temp_buff).substring(0, 5).c_str(),
+            String(heater_temp_buff).substring(0, 5).c_str());
+    digitalWrite(5, LOW);
 
     update_display(200);
     if (millis() - last_time > 1000)
@@ -208,7 +248,7 @@ void loop()
         // Serial.println(ball_heater.get_control_mode());
         // Serial.println(heater_temp);
         // Serial.println(round(heater_temp));
-        // Serial.println(heater_temp_string);
+        // Serial.println(heater_temp_buff);
         // Serial.println(line0);
         // Serial.println(line1);
         // last_time = millis();
