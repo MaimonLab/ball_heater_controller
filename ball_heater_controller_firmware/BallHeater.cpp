@@ -14,7 +14,7 @@
 
 #define ECHO_TO_SERIAL 0
 
-#define HEATER_MAX_PERCENT 90
+#define HEATER_MAX_PERCENT 100
 #define MAX_HEATER_TEMP 60
 
 // Default Constructor
@@ -79,13 +79,23 @@ void BallHeater::tick()
     // go into error mode until dropped.
     // TODO: add recovery from error mode and alerts of error mode.
     // Currently just turns pwm off, and locks up...
-    if (_heater_temp > MAX_HEATER_TEMP)
+    if ((_heater_temp > MAX_HEATER_TEMP))
     {
         this->set_control_mode(HIGH_TEMP_ERROR);
         this->set_pwm(0);
     }
+    if (_heater_temp < -10)
+    {
+        this->set_control_mode(NO_TEMP_ERROR);
+        this->set_pwm(0);
+    }
+    // if in No temp error and temp returned, go to standby
+    if (_controller_mode == NO_TEMP_ERROR && _heater_temp > -10)
+    {
+        this->set_control_mode(STANDBY);
+    }
 
-    // Run pid / update pwm if neccesary
+    // Run pid / update pwm if necessary
     _pid_input = _heater_temp;
     _pid.Compute();
     if (_controller_mode == REMOTE_CONTROL || _controller_mode == LOCAL_CONTROL)

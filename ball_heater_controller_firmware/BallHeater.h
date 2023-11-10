@@ -13,6 +13,7 @@
 #define MANUAL_TEST 3
 
 #define HIGH_TEMP_ERROR 6
+#define NO_TEMP_ERROR 7
 
 class BallHeater
 {

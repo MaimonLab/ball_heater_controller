@@ -38,7 +38,7 @@
 #define ROTARY_1 2
 #define ROTARY_2 3
 #define ROTARY_SWITCH 4
-#define SWITCH_ON_TIME 1000
+#define SWITCH_HOLD_TIME 1000
 
 #define TEMP_STEP 0.25F;
 
@@ -76,8 +76,7 @@ void setup()
     Wire.begin();
     // lcd.begin(16, 2);
     lcd.begin(Wire);
-
-    lcd.setBacklight(255, 255, 255); // Set backlight to bright white
+    lcd.setFastBacklight(0, 0, 128); // Set backlight to dim blue
     lcd.setContrast(0);              // Set contrast. Lower to 0 for higher contrast.
 
     sprintf(line0, "Ball Heater");
@@ -103,7 +102,7 @@ void check_encoder(void)
             switch_on = true;
             switch_on_time = millis();
         }
-        else if (millis() - switch_on_time > SWITCH_ON_TIME)
+        else if (millis() - switch_on_time > SWITCH_HOLD_TIME)
         {
             current_control_mode = ball_heater.get_control_mode();
             switch (current_control_mode)
@@ -111,10 +110,12 @@ void check_encoder(void)
             case STANDBY:
                 ball_heater.set_control_mode(LOCAL_CONTROL);
                 break;
+
             case LOCAL_CONTROL:
-                ball_heater.set_control_mode(STANDBY);
-                break;
             case REMOTE_CONTROL:
+            case HIGH_TEMP_ERROR:
+            case NO_TEMP_ERROR:
+            case MANUAL_TEST:
                 ball_heater.set_control_mode(STANDBY);
                 break;
             }
@@ -201,16 +202,17 @@ void update_display(int interval)
             switch (current_control_mode)
             {
             case STANDBY:
-                lcd.setBacklight(0, 0, 128); // Set backlight to dim blue
+                lcd.setFastBacklight(0, 0, 200); // Set backlight to dim blue
                 break;
             case LOCAL_CONTROL:
-                lcd.setBacklight(255, 0, 0); // Set backlight to red
+                lcd.setFastBacklight(255, 0, 0); // Set backlight to red
                 break;
             case REMOTE_CONTROL:
-                lcd.setBacklight(255, 0, 255); // Set backlight to purple
+                lcd.setFastBacklight(255, 0, 255); // Set backlight to purple
                 break;
             case HIGH_TEMP_ERROR:
-                lcd.setBacklight(255, 255, 0); // Set backlight to yellow
+            case NO_TEMP_ERROR:
+                lcd.setFastBacklight(255, 200, 0); // Set backlight to yellow
                 break;
             }
         }
@@ -238,6 +240,10 @@ String get_control_mode_string(byte mode)
         return "Remote";
     case MANUAL_TEST:
         return "Manual";
+    case HIGH_TEMP_ERROR:
+        return "High Temp Error";
+    case NO_TEMP_ERROR:
+        return "No Temp Sensor";
     default:
         return "Error";
     }
@@ -257,13 +263,13 @@ void loop()
 
     digitalWrite(5, HIGH);
 
-    sprintf(line0, "%s. %3d pwm",
-            control_mode_string.c_str(),
-            round(ball_heater.get_pwm_float()));
+    snprintf(line0, 17, "%s. %3d pwm      ",
+             control_mode_string.c_str(),
+             round(ball_heater.get_pwm_float()));
 
-    sprintf(line1, "SP:%s C:%s",
-            String(target_temp_buff).substring(0, 5).c_str(),
-            String(heater_temp_buff).substring(0, 5).c_str());
+    snprintf(line1, 17, "SP:%s C:%s",
+             String(target_temp_buff).substring(0, 5).c_str(),
+             String(heater_temp_buff).substring(0, 5).c_str());
 
     digitalWrite(5, LOW);
 
