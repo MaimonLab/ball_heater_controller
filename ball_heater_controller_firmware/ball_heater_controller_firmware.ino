@@ -8,6 +8,7 @@
 #include "BallHeater.h"
 #include "SerialComms.h"
 #include <PID_v1.h>
+#include <avr/wdt.h>
 
 #include <SerLCD.h> //Click here to get the library: http://librarymanager/All#SparkFun_SerLCD
 
@@ -69,6 +70,7 @@ void setup()
 {
     pinMode(5, OUTPUT);
     pinMode(7, OUTPUT);
+    wdt_disable(); // Disable WDT
 
     // pinMode(2);
     // pinMode(3);
@@ -83,6 +85,7 @@ void setup()
     sprintf(line1, "V 0.1 by Jazz");
     update_display(1);
     delay(3000);
+    wdt_enable(WDTO_2S); // Enable WDT with a timeout of 2 seconds
 
     //    Wire.setClock(WIRECLOCK);
     ball_heater.init();
@@ -251,6 +254,7 @@ String get_control_mode_string(byte mode)
 
 void loop()
 {
+    wdt_reset(); // Reset WDT
     check_encoder();
     ball_heater.tick();
     serial_comms.tick();
