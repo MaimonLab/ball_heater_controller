@@ -15,6 +15,7 @@
 #define HIGH_TEMP_ERROR 6
 #define NO_TEMP_ERROR 7
 
+#define STALE_READ_TIME 200
 class BallHeater
 {
 public:
@@ -55,7 +56,6 @@ private:
 
     const byte _aux_therm = A2;
     const byte _main_therm = A3;
-    const int _stale_time = 1000;
 
     unsigned long _pid_update; // last time pid output calculated (ms)
 
@@ -74,7 +74,7 @@ private:
     double _pid_output;
     double _kp = 120, _ki = 0.2, _kd = 0.1;
     PID _pid = PID(&_pid_input, &_pid_output, &_target_temp,
-                   _kp, _ki, _kd, DIRECT);
+                   _kp, _ki, _kd, P_ON_M, DIRECT);
 };
 
 #endif

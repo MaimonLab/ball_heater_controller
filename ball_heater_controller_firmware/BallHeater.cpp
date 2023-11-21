@@ -39,7 +39,7 @@ void BallHeater::init()
 
     // set some PID parameters
     _pid.SetOutputLimits(0, HEATER_MAX_PERCENT);
-    // _pid.SetSampleTime(1000); // 1 sec.
+    _pid.SetSampleTime(100); //
 
     delay(200); // make sure things are settled before starting.
     pinMode(_heat_pin, OUTPUT);
@@ -219,7 +219,7 @@ byte BallHeater::get_control_mode()
  ---------------------------------------------------------*/
 void BallHeater::check_read_time()
 {
-    if (millis() - _last_temp_read > _stale_time)
+    if (millis() - _last_temp_read > STALE_READ_TIME)
         this->read_temps();
 }
 

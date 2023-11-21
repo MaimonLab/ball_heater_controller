@@ -138,12 +138,18 @@ class BallHeaterDriver:
         if self.port is None:
             return False, None
 
-        in_data = self.ser.read_all()
-        while (b"\xBE\xAD" not in in_data) and (
-            time.time() - start_time
-        ) < self.read_timeout:
-            in_data += self.ser.read_all()
-
+        try:
+            in_data = self.ser.read_all()
+            while (b"\xBE\xAD" not in in_data) and (
+                time.time() - start_time
+            ) < self.read_timeout:
+                in_data += self.ser.read_all()
+        except serial.SerialException:
+            print("Serial exception")
+            return False, None
+        except BaseException as e:
+            print(f"Error: {e}")
+            return False, None
         # check to make sure echoed command is the same as the one sent.
         if self.command_bytestring not in in_data:
             return False, None
