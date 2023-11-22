@@ -10,20 +10,10 @@
 #define BCOEFFICIENT 3988
 #define SERIESRESISTOR 10000
 
-#define LOG_INTERVAL 1000
-
 #define ECHO_TO_SERIAL 0
-
-#define HEATER_MAX_PERCENT 100
-#define MAX_HEATER_TEMP 60
-
-// Default Constructor
-//  BallHeater::BallHeater(){}
 
 /**
     Constructor for the BallHeater class.
-
-    Initializes the hardware peripherals involved.
 */
 BallHeater::BallHeater()
 {
@@ -34,9 +24,6 @@ BallHeater::BallHeater()
  --------------------------------------------------------*/
 void BallHeater::init()
 {
-    //    analogReadResolution(12);
-    // data_logger = DataLogger("pwm,hot_temp,cold_temp,therm_3,air_temp,humid");
-
     // set some PID parameters
     _pid.SetOutputLimits(0, HEATER_MAX_PERCENT);
     _pid.SetSampleTime(100); //
@@ -72,7 +59,7 @@ void BallHeater::tick()
 {
     // digitalWrite(6, HIGH);
 
-    // read temps if measuremnts stale.
+    // read temps if measurements stale.
     this->check_read_time();
 
     // check if heater is overtemp and shut down +
@@ -93,6 +80,18 @@ void BallHeater::tick()
     if (_controller_mode == NO_TEMP_ERROR && _heater_temp > -10)
     {
         this->set_control_mode(STANDBY);
+    }
+
+    // Calculate filter for non-responsive error if it's time
+    if (millis() - _last_filter_update > RESPONSE_SAMPLE_INTERVAL)
+    {
+        _last_filter_update = millis();
+        _filtered_output = RESPONSE_FILTER_WEIGHT * _filtered_output + (1 - RESPONSE_FILTER_WEIGHT) * _pwm_float;
+        if (_filtered_output > NON_RESPONSIVE_THRESHOLD)
+        {
+            this->set_control_mode(NON_RESPONSIVE_ERROR);
+            this->set_pwm(0);
+        }
     }
 
     // Run pid / update pwm if necessary
@@ -136,18 +135,24 @@ void BallHeater::set_pwm(float pwm_goal)
         MANUAL_TEST 3
 
         HIGH_TEMP_ERROR 6
+        NO_TEMP_ERROR 7
+        NON_RESPONSIVE_ERROR 8
  ---------------------------------------------------------*/
 void BallHeater::set_control_mode(byte mode)
 {
     _controller_mode = mode;
-
+    _pid_output = _pwm_float; // keep pid updated with current sitch.
     if (_controller_mode == LOCAL_CONTROL || _controller_mode == REMOTE_CONTROL)
     {
         _pid.SetMode(AUTOMATIC);
     }
     else
         _pid.SetMode(MANUAL);
-    if (_controller_mode == STANDBY || _controller_mode == HIGH_TEMP_ERROR)
+
+    if (_controller_mode == STANDBY ||
+        _controller_mode == HIGH_TEMP_ERROR ||
+        _controller_mode == NO_TEMP_ERROR ||
+        _controller_mode == NON_RESPONSIVE_ERROR)
     {
         this->set_pwm(0);
     }

@@ -85,7 +85,7 @@ void setup()
     sprintf(line1, "V 0.1 by Jazz");
     update_display(1);
     delay(3000);
-    wdt_enable(WDTO_2S); // Enable WDT with a timeout of 2 seconds
+    wdt_enable(WDTO_4S); // Enable WDT with a timeout of 4 seconds
 
     //    Wire.setClock(WIRECLOCK);
     ball_heater.init();
@@ -100,12 +100,13 @@ void check_encoder(void)
     // Check if the rotary switch is on and if it has been on for long enough
     if (digitalRead(ROTARY_SWITCH) == LOW)
     {
-        if (!switch_on)
+        if (!switch_on) // if the switch has just been turned on
         {
             switch_on = true;
             switch_on_time = millis();
         }
-        else if (millis() - switch_on_time > SWITCH_HOLD_TIME)
+        // otherwise, if it's been on, check if it's been on long enough
+        else if ((millis() - switch_on_time) > SWITCH_HOLD_TIME)
         {
             current_control_mode = ball_heater.get_control_mode();
             switch (current_control_mode)
@@ -118,6 +119,7 @@ void check_encoder(void)
             case REMOTE_CONTROL:
             case HIGH_TEMP_ERROR:
             case NO_TEMP_ERROR:
+            case NON_RESPONSIVE_ERROR:
             case MANUAL_TEST:
                 ball_heater.set_control_mode(STANDBY);
                 break;
@@ -125,8 +127,7 @@ void check_encoder(void)
             switch_on = false;
         }
     }
-
-    else
+    else // if the switch is off, reset the switch_on flag
     {
         switch_on = false;
     }
@@ -215,6 +216,7 @@ void update_display(int interval)
                 break;
             case HIGH_TEMP_ERROR:
             case NO_TEMP_ERROR:
+            case NON_RESPONSIVE_ERROR:
                 lcd.setFastBacklight(255, 200, 0); // Set backlight to yellow
                 break;
             }
@@ -247,6 +249,8 @@ String get_control_mode_string(byte mode)
         return "High Temp Error";
     case NO_TEMP_ERROR:
         return "No Temp Sensor";
+    case NON_RESPONSIVE_ERROR:
+        return "Non Response ERR";
     default:
         return "Error";
     }

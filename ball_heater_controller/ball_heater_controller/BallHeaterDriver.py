@@ -78,6 +78,8 @@ class BallHeaterDriver:
             2: "remote_control",
             3: "manual_test",
             6: "high_temp_error",
+            7: "no_thermistor_error",
+            8: "heater_non_responsive_error",
         }
         # add reverse lookup to control_mode_dict
         self.control_mode_dict.update(

@@ -14,6 +14,19 @@
 
 #define HIGH_TEMP_ERROR 6
 #define NO_TEMP_ERROR 7
+#define NON_RESPONSIVE_ERROR 8
+
+// Non responsive error done with a slow exponential filter
+// Tau of the filter =  - 1 / ln(RESPONSE_FILTER_WEIGHT)
+// 0.95 -> tau = 19.5 seconds
+#define RESPONSE_FILTER_WEIGHT 0.95
+#define RESPONSE_SAMPLE_INTERVAL 1000 // 1 second
+// if the filtered output crosses this threshold, the heater is considered
+// non-responsive and an error is thrown
+#define NON_RESPONSIVE_THRESHOLD 75
+
+#define HEATER_MAX_PERCENT 100
+#define MAX_HEATER_TEMP 60
 
 #define STALE_READ_TIME 200
 class BallHeater
@@ -69,6 +82,9 @@ private:
     double _target_temp = 25;
     float _heater_temp;
     float _aux_therm_temp;
+
+    float _filtered_output = 0;
+    unsigned long _last_filter_update = 0;
 
     double _pid_input;
     double _pid_output;
