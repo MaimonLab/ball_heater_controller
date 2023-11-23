@@ -245,7 +245,7 @@ int SerialComms::send_status_header(byte *in_byte)
 }
 
 /*-------------------- send_pid_params -------------------------
-       Sends the PID params (downconverted to float) back over serial.
+       Sends the PID params (cast to float) back over serial.
  ---------------------------------------------------------*/
 int SerialComms::send_pid_params(byte *in_byte)
 {
@@ -274,7 +274,7 @@ int SerialComms::set_target_temp(byte *in_byte)
 {
     float target_temp = ByteToType::BytesToFloat((in_byte));
     _ball_heater->set_target_temp(target_temp);
-    if (_ball_heater->get_control_mode() != REMOTE_CONTROL)
+    if (_ball_heater->get_control_mode() == STANDBY || _ball_heater->get_control_mode() == LOCAL_CONTROL)
         _ball_heater->set_control_mode(REMOTE_CONTROL);
     return 0;
 }

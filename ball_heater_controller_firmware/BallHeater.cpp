@@ -86,7 +86,7 @@ void BallHeater::tick()
     if (millis() - _last_filter_update > RESPONSE_SAMPLE_INTERVAL)
     {
         _last_filter_update = millis();
-        _filtered_output = RESPONSE_FILTER_WEIGHT * _filtered_output + (1 - RESPONSE_FILTER_WEIGHT) * _pwm_float;
+        _filtered_output = RESPONSE_FILTER_WEIGHT * _filtered_output + (1 - RESPONSE_FILTER_WEIGHT) * _pid_output;
         if (_filtered_output > NON_RESPONSIVE_THRESHOLD)
         {
             this->set_control_mode(NON_RESPONSIVE_ERROR);
@@ -101,11 +101,8 @@ void BallHeater::tick()
     {
         this->set_pwm(_pid_output);
     }
-    else if (_controller_mode == MANUAL_TEST)
-    {
-        _pid_output = _pwm_float; // keep pid updated with current sitch.
-    }
-    else
+
+    else if (_controller_mode != MANUAL_TEST)
     {
         this->set_pwm(0);
     }
@@ -119,7 +116,7 @@ void BallHeater::tick()
 void BallHeater::set_pwm(float pwm_goal)
 {
     pwm_goal = constrain(pwm_goal, 0, HEATER_MAX_PERCENT);
-    _pwm_float = pwm_goal;
+    _pid_output = pwm_goal;
     _pwm_level = (pwm_goal / 100) * _pwm_max;
     OCR1A = _pwm_level;
 }
@@ -141,7 +138,6 @@ void BallHeater::set_pwm(float pwm_goal)
 void BallHeater::set_control_mode(byte mode)
 {
     _controller_mode = mode;
-    _pid_output = _pwm_float; // keep pid updated with current sitch.
     if (_controller_mode == LOCAL_CONTROL || _controller_mode == REMOTE_CONTROL)
     {
         _pid.SetMode(AUTOMATIC);
@@ -176,7 +172,7 @@ void BallHeater::set_pid_params(double kp, double ki, double kd)
  ---------------------------------------------------------*/
 float BallHeater::get_pwm_float()
 {
-    return _pwm_float;
+    return _pid_output;
 }
 
 float BallHeater::get_target_temp()
