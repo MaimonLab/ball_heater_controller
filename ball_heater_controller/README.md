@@ -1,6 +1,6 @@
 # ball_heater
 
-ROS2 package for the ball heater controller
+ROS2 package for the Ball Heater Controller
 
 # Dependencies
 <!-- 
