@@ -56,7 +56,7 @@ HEATER_COMMANDS = {
 
 
 class BallHeaterDriver:
-    """Class to interface with the ball heater controller PCB."""
+    """Class to interface with the Ball Heater Controller PCB."""
 
     def __init__(self, port=None):
         self.port = port
@@ -98,15 +98,34 @@ class BallHeaterDriver:
             except:
                 raise serial.SerialException(f"Serial not found.")
 
-    def send_command(self, command_name, arg_list=[], num_tries=1):
-        """Sends the specified command to the arduino with provided arguments, after converting."""
+    def send_command(self, command_name: str, arg_list=[], _num_tries=1):
+        """Sends the specified command to the arduino with provided arguments, after converting.
+
+        Args:
+            command_name (str): Name of the command to send
+            arg_list (list, optional): List of arguments if needed. Defaults to [].
+            _num_tries (int, optional): Number of times command has been sent, private.
+
+        Returns:
+            Tuple[Bool, Dict]: Returns tuple of success, and returned data, if any.
+        """
         if self.port is None:
             return False, None
 
         self.command_name = command_name
         self.command = self.command_def_dict[command_name]
-        self.command_bytestring = self.start + struct.pack("<B", self.command["code"])
+        if not isinstance(arg_list, list):
+            arg_list = [arg_list]
 
+        if command_name == "set_control_mode" and isinstance(arg_list[0], str):
+            try:
+                arg_list = [self.control_mode_dict[arg_list[0]]]
+            except KeyError:
+                print("Error, invalid control_mode valid modes:")
+                print(self.control_mode_dict)
+                return False, None
+
+        self.command_bytestring = self.start + struct.pack("<B", self.command["code"])
         for arg, arg_type in zip(arg_list, self.command["arg_types"]):
             self.command_bytestring += struct.pack(
                 "<" + self.type_lookup[arg_type], arg
@@ -115,24 +134,24 @@ class BallHeaterDriver:
         self.command_bytestring += self.end
         self.ser.write(self.command_bytestring)
 
-        success, return_data = self.recieve_response()
+        success, return_data = self.receive_response()
 
         if success:
             return True, return_data
         else:
-            if num_tries > self.max_send_attempts:
+            if _num_tries > self.max_send_attempts:
                 # if num_tries greater then max_send_attempts then return failure.
                 # TODO: make sure this makes sense  in ROS / goes somewhere useful.
 
                 return (
                     False,
-                    f"sending command {command_name} failed after {num_tries} attempts.",
+                    f"sending command {command_name} failed after {_num_tries} attempts.",
                 )
             else:
                 # otherwise, reccur with increased num_tries.
-                return self.send_command(command_name, arg_list, num_tries + 1)
+                return self.send_command(command_name, arg_list, _num_tries + 1)
 
-    def recieve_response(self):
+    def receive_response(self):
         """Gets data back from the temperature controller and checks / processes it."""
         # Read data until we have the message end sequence (BEAD) or timeout elapsed.
         start_time = time.time()
@@ -146,6 +165,7 @@ class BallHeaterDriver:
                 time.time() - start_time
             ) < self.read_timeout:
                 in_data += self.ser.read_all()
+
         except serial.SerialException:
             print("Serial exception")
             return False, None
@@ -154,6 +174,8 @@ class BallHeaterDriver:
             return False, None
         # check to make sure echoed command is the same as the one sent.
         if self.command_bytestring not in in_data:
+            print("ERROR: Command was not echoed by controller.")
+            print("Command may not have been recieved properly.")
             return False, None
 
         returned_data = in_data.split(b"\xFE\xED")[0]
@@ -183,7 +205,15 @@ class BallHeaterDriver:
         else:
             parsed_data = struct.unpack(arg_format_string, returned_data)
             self.status_tries = 0
-            return True, {key: value for key, value in zip(arg_names, parsed_data)}
+            return_data_dict = {
+                key: value for key, value in zip(arg_names, parsed_data)
+            }
+            if "control_mode" in return_data_dict:
+                return_data_dict["control_mode"] = self.control_mode_dict.get(
+                    return_data_dict["control_mode"], return_data_dict["control_mode"]
+                )
+
+            return True, return_data_dict
 
     def begin_logging(self, log_interval, log_file_path):
         """Starts a loop to regularly get the  from the controller and record.
