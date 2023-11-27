@@ -19,6 +19,7 @@ In short, after creating a `BallHeaterDriver` object, providing the correct seri
 ```python
 import ball_heater_driver 
 from list_ports import list_ports
+import time
 
 ports = [
     port
@@ -29,14 +30,17 @@ port = ports[0]["port"]
 print(f"Using Port: {port}")
 ball_heater = ball_heater_driver.BallHeaterDriver(port=port)
 
+# wait for the device to reset
+time.sleep(5)
+
 # Get and print status
 success, status = ball_heater.send_command('status', [])
 print('current status is:')
-_ = [print(f"{key} : {value}") for key, value in status.items()]
+print('\n'.join((f"{key} : {value}") for key, value in status.items()))
 
 
 # Set the target temperature to 35 (will also set control mode to remote)
-ball_heater.send_command("set_target_temp", [45])
+ball_heater.send_command("set_target_temp", [35])
 
 # Set the control mode back to standby
 ball_heater.send_command("set_control_mode", ["standby"])
