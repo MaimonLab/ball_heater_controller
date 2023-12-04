@@ -48,7 +48,11 @@ ball_heater.send_command("set_control_mode", ["standby"])
 
 ### ROS2
 
-There is also a ROS2 Node provided for interacting with the Ball Heater Controller, [`ball_heater_node.py`](ball_heater_controller/ball_heater_controller/ball_heater_node.py).  The launch file [example_ball_heater.launch.py](ball_heater_controller/launch/example_ball_heater.launch.py), along with the config file [example_config.yaml](ball_heater_controller/config/example_config.yaml) will launch the node, as well as an example client node.
+There is also a ROS2 Node provided for interacting with the Ball Heater Controller, [`ball_heater_node.py`](ball_heater_controller/ball_heater_controller/ball_heater_node.py).  The launch file [example_ball_heater.launch.py](ball_heater_controller/launch/example_ball_heater.launch.py), along with the config file [example_config.yaml](ball_heater_controller/config/example_config.yaml) will launch the node, as well as an example client node that can interact with the ball_heater_node.  It will also launch the ball_heater_gui that will subscribe to and print the heater status, and let the user set the temperature setpoint.  Once installed, set the `serial_port` or `device_serial_number` in `example_config.yaml` and launch the launch file using
+
+```bash
+ros2 launch ball_heater_controller example_ball_heater.launch.py 
+```
 
 Generally, the `BallHeaterNode` must be given a `serial_port` or a `device_serial_number` to specify the controller. Then, the status information will be published to the `ball_heater_status_topic` (default `ball_heater_controller/status_topic`), and the temperature can be set by another node by publishing to the `ball_heater_set_temp_topic` (default `ball_heater_controller/set_temp_topic`)
 
