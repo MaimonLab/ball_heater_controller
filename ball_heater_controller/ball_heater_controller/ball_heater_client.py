@@ -17,6 +17,7 @@ class ExampleBallHeaterClientNode(Node):
             "ball_heater_status_topic": "ball_heater_controller/status_topic",
             "ball_heater_set_temp_topic": "ball_heater_controller/temperature_commands",
             "temperature_setpoint": 35.0,
+            "print_status": True,
         }
         for key, value in default_param.items():
             if not self.has_parameter(key):
@@ -50,7 +51,15 @@ class ExampleBallHeaterClientNode(Node):
         )
 
     def status_callback(self, status_msg):
-        self.get_logger().info(f"Ball Heater Status: {status_msg}")
+        if self.get_parameter("print_status").value:
+            formatted_msg = (
+                f"Target Temp: {status_msg.target_temp:.2f} \n"
+                f"Ball Heater PWM: {status_msg.ball_heater_pwm:.2f} \n"
+                f"Heater Temp: {status_msg.heater_temp:.2f} \n"
+                f"Aux Therm Temp: {status_msg.aux_therm_temp:.2f} \n"
+                f"Control Mode: {status_msg.control_mode}"
+            )
+            self.get_logger().info(formatted_msg)
 
 
 def main(args=None):

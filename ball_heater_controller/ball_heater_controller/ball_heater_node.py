@@ -59,8 +59,8 @@ class BallHeaterNode(Node):
                 f"{WORKSPACE}/src/" f"ball_heater_controller/data/test_filename"
             ),
             "status_interval": 1.0,
-            "pid_kp": 120,
-            "pid_ki": 0.2,
+            "pid_kp": 15,
+            "pid_ki": 1,
             "pid_kd": 0.1,
         }
         for key, value in default_param.items():
@@ -133,7 +133,7 @@ class BallHeaterNode(Node):
         )
 
         output_filename = self.get_parameter("output_filename").value
-        self.csv_writer = CSVWriter(output_filename + "_light_sugar_commands.csv")
+        self.csv_writer = CSVWriter(output_filename + "_ball_heater_status.csv")
 
         self.set_pid_parameters()
         self.create_timer(
@@ -181,9 +181,8 @@ class BallHeaterNode(Node):
             status_msg.heater_temp = status_dict["heater_temp"]
             status_msg.ball_heater_pwm = status_dict["ball_heater_pwm"]
             status_msg.aux_therm_temp = status_dict["aux_therm_temp"]
-            status_msg.control_mode = self.ball_heater.control_mode_dict[
-                status_dict["control_mode"]
-            ]
+            status_msg.control_mode = status_dict["control_mode"]
+
         except:
             self.get_logger().error(
                 f"Getting / parsing status failed, not publishing, {sys.exc_info()}"
