@@ -74,7 +74,9 @@ The controller has several different modes, shown upper left on the LCD display,
 
 Run the installation script
 
-    ./install_dependencies.sh
+```bash
+./install_dependencies.sh
+```
 
 ## Safety Cutoffs / Troubleshooting
 

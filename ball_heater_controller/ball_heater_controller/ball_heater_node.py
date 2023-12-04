@@ -23,9 +23,9 @@ This is the case when executing the node directly:
     python3 ball_heater.py
 """
 if __name__ == "__main__":
-    from BallHeaterDriver import BallHeaterDriver
+    from ball_heater_driver import BallHeaterDriver
 else:
-    from ball_heater_controller.BallHeaterDriver import BallHeaterDriver
+    from ball_heater_controller.ball_heater_driver import BallHeaterDriver
 
 WORKSPACE = get_package_share_directory("eternarig_experiment_logic").split("/install")[
     0
@@ -58,6 +58,7 @@ class BallHeaterNode(Node):
             "output_filename": (
                 f"{WORKSPACE}/src/" f"ball_heater_controller/data/test_filename"
             ),
+            "status_interval": 1.0,
             "pid_kp": 120,
             "pid_ki": 0.2,
             "pid_kd": 0.1,
@@ -96,10 +97,9 @@ class BallHeaterNode(Node):
         else:
             port_to_try = "not specified"
 
-        # if a port is specified, try to open it. Open a mock part in case of faillure
+        # if a port is specified, try to open it. Open a mock part in case of failure
         if port_to_try != "not specified":
             try:
-                # self.rig_controller = ArduinoInterface(port_to_try)
                 self.ball_heater = BallHeaterDriver(port_to_try)
                 if port_to_try is not None:
                     self.get_logger().info(f"Opening Serial Port {port_to_try}")
@@ -136,7 +136,10 @@ class BallHeaterNode(Node):
         self.csv_writer = CSVWriter(output_filename + "_light_sugar_commands.csv")
 
         self.set_pid_parameters()
-        self.create_timer(1.0, self.publish_status)
+        self.create_timer(
+            self.get_parameter("status_interval").value,
+            self.publish_status,
+        )
 
     def set_pid_parameters(self):
         self.pid_params = [

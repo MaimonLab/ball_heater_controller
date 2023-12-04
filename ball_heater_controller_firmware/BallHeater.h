@@ -72,7 +72,6 @@ private:
 
     unsigned long _pid_update; // last time pid output calculated (ms)
 
-    float _pwm_float = 0;
     unsigned int _pwm_level = 0;
 
     const unsigned int _pwm_max = 0x07FF; // 11-bit resolution.  7812 Hz PWM

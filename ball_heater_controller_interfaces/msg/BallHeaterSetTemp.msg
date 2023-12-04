@@ -1,4 +1,4 @@
-# Sets the target temperature of the ball heater controller.
+# Sets the target temperature of the Ball Heater Controller.
 
 std_msgs/Header header 
 

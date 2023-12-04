@@ -122,7 +122,7 @@ class BallHeaterDriver:
                 arg_list = [self.control_mode_dict[arg_list[0]]]
             except KeyError:
                 print("Error, invalid control_mode valid modes:")
-                print(self.control_mode_dict)
+                print("\n".join((str(key) for key in self.control_mode_dict.keys())))
                 return False, None
 
         self.command_bytestring = self.start + struct.pack("<B", self.command["code"])
@@ -174,8 +174,8 @@ class BallHeaterDriver:
             return False, None
         # check to make sure echoed command is the same as the one sent.
         if self.command_bytestring not in in_data:
-            print("ERROR: Command was not echoed by controller.")
-            print("Command may not have been recieved properly.")
+            # print("ERROR: Command was not echoed by controller.")
+            # print("Command may not have been received properly.")
             return False, None
 
         returned_data = in_data.split(b"\xFE\xED")[0]

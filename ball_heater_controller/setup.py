@@ -18,7 +18,7 @@ setup(
     zip_safe=True,
     maintainer="Jazz Weisman",
     maintainer_email="jweisman@rockefeller.edu",
-    description="ROS package to interface with the ball heater controller PCB.",
+    description="ROS package to interface with the Ball Heater Controller PCB.",
     license="LGPLv3",
     tests_require=["pytest"],
     entry_points={
