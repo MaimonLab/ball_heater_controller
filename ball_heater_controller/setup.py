@@ -25,6 +25,7 @@ setup(
         "console_scripts": [
             "ball_heater_node = ball_heater_controller.ball_heater_node:main",
             "ball_heater_client = ball_heater_controller.ball_heater_client:main",
+            "ball_heater_gui = ball_heater_controller.ball_heater_gui:main",
             "list_ports = ball_heater_controller.list_ports:main",
         ],
     },
