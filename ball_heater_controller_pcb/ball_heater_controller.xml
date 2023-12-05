@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="E">
   <design>
-    <source>/Users/jazzlw/src/ball_heater_controller/ball_heater_controller.kicad_sch</source>
-    <date>2023 October 12, Thursday 17:54:09</date>
+    <source>/Users/jazzlw/src/ROS_ws/ball_heater_controller/ball_heater_controller_pcb/ball_heater_controller.kicad_sch</source>
+    <date>2023 December 05, Tuesday 11:02:49</date>
     <tool>Eeschema 7.0.8</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
+        <title>Ball Heater Controller</title>
+        <company>Maimon Lab</company>
+        <rev>V 1</rev>
+        <date>2023-10-19</date>
         <source>ball_heater_controller.kicad_sch</source>
-        <comment number="1" value=""/>
+        <comment number="1" value="Jazz Weisman"/>
         <comment number="2" value=""/>
         <comment number="3" value=""/>
         <comment number="4" value=""/>
@@ -99,7 +99,7 @@
       <tstamps>216942b8-0dfc-4386-94ca-9a42dd9252ad</tstamps>
     </comp>
     <comp ref="C7">
-      <value>.1uF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Sheetname" value=""/>
@@ -120,14 +120,81 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamps>6628b292-2376-4c7b-bad4-568f3c654b27</tstamps>
     </comp>
-    <comp ref="D1">
-      <value>BAS316</value>
-      <footprint>Diode_SMD:D_SOD-323_HandSoldering</footprint>
-      <libsource lib="Temperature-Controller-V_2-rescue" part="D_ALT-Device" description=""/>
+    <comp ref="C9">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>a9681fb5-6ad3-4bf9-8c1d-35f6612288e3</tstamps>
+      <tstamps>6fd14f80-1414-43e8-8b06-54a744266b51</tstamps>
+    </comp>
+    <comp ref="C10">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0793f053-0511-4509-8e2d-49d71b933d4c</tstamps>
+    </comp>
+    <comp ref="C11">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>68ce24d2-ebc8-4cea-9f57-fa728c47c6db</tstamps>
+    </comp>
+    <comp ref="C12">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>50f88219-14c8-4c08-a1e3-7001f85e8c5c</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>S1G</value>
+      <footprint>digikey-footprints:DO-214AC</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/S1M-D.pdf</datasheet>
+      <fields>
+        <field name="Category">Discrete Semiconductor Products</field>
+        <field name="DK_Datasheet_Link">https://www.onsemi.com/pub/Collateral/S1M-D.pdf</field>
+        <field name="DK_Detail_Page">/product-detail/en/on-semiconductor/S1G/S1GFSCT-ND/965720</field>
+        <field name="Description">DIODE GEN PURP 400V 1A SMA</field>
+        <field name="Digi-Key_PN">S1GFSCT-ND</field>
+        <field name="Family">Diodes - Rectifiers - Single</field>
+        <field name="MPN">S1G</field>
+        <field name="Manufacturer">ON Semiconductor</field>
+        <field name="Status">Active</field>
+      </fields>
+      <libsource lib="dk_Diodes-Rectifiers-Single" part="S1G" description="DIODE GEN PURP 400V 1A SMA"/>
+      <property name="Digi-Key_PN" value="S1GFSCT-ND"/>
+      <property name="MPN" value="S1G"/>
+      <property name="Category" value="Discrete Semiconductor Products"/>
+      <property name="Family" value="Diodes - Rectifiers - Single"/>
+      <property name="DK_Datasheet_Link" value="https://www.onsemi.com/pub/Collateral/S1M-D.pdf"/>
+      <property name="DK_Detail_Page" value="/product-detail/en/on-semiconductor/S1G/S1GFSCT-ND/965720"/>
+      <property name="Description" value="DIODE GEN PURP 400V 1A SMA"/>
+      <property name="Manufacturer" value="ON Semiconductor"/>
+      <property name="Status" value="Active"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="DIODE GEN PURP 400V 1A SMA"/>
+      <property name="ki_keywords" value="S1GFSCT-ND"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e8e5b12c-5ada-4989-92a8-1a0df5460c05</tstamps>
     </comp>
     <comp ref="H1">
       <value>MountingHole</value>
@@ -321,15 +388,36 @@
       <tstamps>c475055c-d878-41ff-b8f7-6e56ccf2045f</tstamps>
     </comp>
     <comp ref="Q2">
-      <value>AON7528</value>
-      <footprint>Misc_custom:TRANS_AON7403</footprint>
-      <libsource lib="Device" part="Q_NMOS_GSD" description="N-MOSFET transistor, gate/source/drain"/>
+      <value>TSM170N06CP</value>
+      <footprint>digikey-footprints:TO-252-3</footprint>
+      <datasheet>https://www.taiwansemi.com/assets/uploads/datasheet/TSM170N06_B15.pdf</datasheet>
+      <fields>
+        <field name="Category">Discrete Semiconductor Products</field>
+        <field name="DK_Datasheet_Link">https://www.taiwansemi.com/assets/uploads/datasheet/TSM170N06_B15.pdf</field>
+        <field name="DK_Detail_Page">/products/detail/taiwan-semiconductor-corporation/TSM170N06CP-ROG/7360167</field>
+        <field name="Description">MOSFET N-CHANNEL 60V 38A TO252</field>
+        <field name="Digi-Key_PN">TSM170N06CPROGCT-ND</field>
+        <field name="Family">Transistors - FETs, MOSFETs - Single</field>
+        <field name="MPN">TSM170N06CP</field>
+        <field name="Manufacturer">Taiwan Semiconductor</field>
+        <field name="Status">Active</field>
+      </fields>
+      <libsource lib="Misc_Custom" part="TSM170N06CP" description="MOSFET N-CH 60V 115MA SOT-23"/>
+      <property name="Digi-Key_PN" value="TSM170N06CPROGCT-ND"/>
+      <property name="MPN" value="TSM170N06CP"/>
+      <property name="Category" value="Discrete Semiconductor Products"/>
+      <property name="Family" value="Transistors - FETs, MOSFETs - Single"/>
+      <property name="DK_Datasheet_Link" value="https://www.taiwansemi.com/assets/uploads/datasheet/TSM170N06_B15.pdf"/>
+      <property name="DK_Detail_Page" value="/products/detail/taiwan-semiconductor-corporation/TSM170N06CP-ROG/7360167"/>
+      <property name="Description" value="MOSFET N-CHANNEL 60V 38A TO252"/>
+      <property name="Manufacturer" value="Taiwan Semiconductor"/>
+      <property name="Status" value="Active"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
-      <property name="ki_description" value="N-MOSFET transistor, gate/source/drain"/>
-      <property name="ki_keywords" value="transistor NMOS N-MOS N-MOSFET"/>
+      <property name="ki_description" value="MOSFET N-CH 60V 115MA SOT-23"/>
+      <property name="ki_keywords" value="2N7002NCT-ND"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>121cea1c-e2fc-4582-8560-18d1fe9c1bf1</tstamps>
+      <tstamps>9c1211ca-ce2d-48bd-b7dd-dea18a4c57b6</tstamps>
     </comp>
     <comp ref="R1">
       <value>10k</value>
@@ -375,6 +463,28 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamps>6caad021-aeaf-4315-ac28-ea0007d8be65</tstamps>
     </comp>
+    <comp ref="R5">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>76bbc397-cc2b-461d-94e4-f0412d29098b</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>28ed7f55-492d-4679-a008-1689f5e6cac8</tstamps>
+    </comp>
     <comp ref="RN1">
       <value>10k</value>
       <footprint>Resistor_SMD:R_Array_Convex_4x1206</footprint>
@@ -386,9 +496,20 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamps>f48556c5-5518-4ab6-923e-307a46e87004 c4f3fd32-60b4-4f74-9111-c8b628851259 f49b664b-9191-4d80-b72e-6db4eb7705ef 3cb534dd-b554-4e57-a79e-685e4c01fb69</tstamps>
     </comp>
+    <comp ref="RN2">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_Array_Convex_4x1206</footprint>
+      <libsource lib="Device" part="R_Pack04_Split" description="4 resistor network, parallel topology, split"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_description" value="4 resistor network, parallel topology, split"/>
+      <property name="ki_keywords" value="R network parallel topology isolated"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8ccc44f2-edf2-4471-b876-d9e09d08b7da ed5d8d1f-94e7-4e58-91d2-3d8f87e600b6 fbe4c474-6cfa-44df-861c-f2b57458c885 0fcf02cf-ffb6-4aae-8f68-d943738a2415</tstamps>
+    </comp>
     <comp ref="SW1">
       <value>RotaryEncoder_Switch</value>
-      <footprint>Misc_custom:PEC09-2320F-S0015</footprint>
+      <footprint>Rotary_Encoder:RotaryEncoder_Bourns_Horizontal_PEC09-2xxxF-Sxxxx</footprint>
       <libsource lib="Device" part="RotaryEncoder_Switch" description="Rotary encoder, dual channel, incremental quadrate outputs, with switch"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
@@ -396,6 +517,17 @@
       <property name="ki_keywords" value="rotary switch encoder switch push button"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>4cfb5377-e10f-4e66-98d3-acee5bdd9e66</tstamps>
+    </comp>
+    <comp ref="SW2">
+      <value>CL-SB-12A-01T</value>
+      <footprint>Misc_custom:CL-SB-12A-01T</footprint>
+      <datasheet>CL-SB-12A-01T</datasheet>
+      <libsource lib="Misc_Custom" part="CL-SB-12A-01T" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="ball_heater_controller.kicad_sch"/>
+      <property name="ki_keywords" value="CL-SB-12A-01T"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>29413f16-01cd-4d7d-85c6-f6656c68b44f</tstamps>
     </comp>
     <comp ref="TP1">
       <value>TestPoint</value>
@@ -545,20 +677,6 @@
         <pin num="2" name="" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="Device" part="Q_NMOS_GSD">
-      <description>N-MOSFET transistor, gate/source/drain</description>
-      <docs>~</docs>
-      <fields>
-        <field name="Reference">Q</field>
-        <field name="Value">Q_NMOS_GSD</field>
-        <field name="Datasheet">~</field>
-      </fields>
-      <pins>
-        <pin num="1" name="G" type="input"/>
-        <pin num="2" name="S" type="passive"/>
-        <pin num="3" name="D" type="passive"/>
-      </pins>
-    </libpart>
     <libpart lib="Device" part="R_Pack04_Split">
       <description>4 resistor network, parallel topology, split</description>
       <docs>~</docs>
@@ -688,6 +806,23 @@
         <field name="Datasheet">~</field>
       </fields>
     </libpart>
+    <libpart lib="Misc_Custom" part="CL-SB-12A-01T">
+      <docs>CL-SB-12A-01T</docs>
+      <footprints>
+        <fp>CL-SB-12A-01T_NDC</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">CL-SB-12A-01T</field>
+        <field name="Footprint">CL-SB-12A-01T_NDC</field>
+        <field name="Datasheet">CL-SB-12A-01T</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="unspecified"/>
+        <pin num="2" name="2" type="unspecified"/>
+        <pin num="3" name="3" type="unspecified"/>
+      </pins>
+    </libpart>
     <libpart lib="Misc_Custom" part="F0512S-1WR3">
       <fields>
         <field name="Reference">PS</field>
@@ -724,20 +859,51 @@
         <pin num="G2" name="GND__1" type="power_in"/>
       </pins>
     </libpart>
-    <libpart lib="Temperature-Controller-V_2-rescue" part="D_ALT-Device">
-      <footprints>
-        <fp>TO-???*</fp>
-        <fp>*_Diode_*</fp>
-        <fp>*SingleDiode*</fp>
-        <fp>D_*</fp>
-      </footprints>
+    <libpart lib="Misc_Custom" part="TSM170N06CP">
+      <description>MOSFET N-CH 60V 115MA SOT-23</description>
+      <docs>https://www.taiwansemi.com/assets/uploads/datasheet/TSM170N06_B15.pdf</docs>
       <fields>
-        <field name="Reference">D</field>
-        <field name="Value">D_ALT-Device</field>
+        <field name="Reference">Q</field>
+        <field name="Value">TSM170N06CP</field>
+        <field name="Footprint">digikey-footprints:TO-252-3</field>
+        <field name="Datasheet">https://www.taiwansemi.com/assets/uploads/datasheet/TSM170N06_B15.pdf</field>
+        <field name="Digi-Key_PN">TSM170N06CPROGCT-ND</field>
+        <field name="MPN">TSM170N06CP</field>
+        <field name="Category">Discrete Semiconductor Products</field>
+        <field name="Family">Transistors - FETs, MOSFETs - Single</field>
+        <field name="DK_Datasheet_Link">https://www.taiwansemi.com/assets/uploads/datasheet/TSM170N06_B15.pdf</field>
+        <field name="DK_Detail_Page">/products/detail/taiwan-semiconductor-corporation/TSM170N06CP-ROG/7360167</field>
+        <field name="Description">MOSFET N-CHANNEL 60V 38A TO252</field>
+        <field name="Manufacturer">Taiwan Semiconductor</field>
+        <field name="Status">Active</field>
       </fields>
       <pins>
-        <pin num="1" name="K" type="passive"/>
-        <pin num="2" name="A" type="passive"/>
+        <pin num="1" name="G" type="bidirectional"/>
+        <pin num="2" name="D" type="bidirectional"/>
+        <pin num="3" name="S" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="dk_Diodes-Rectifiers-Single" part="S1G">
+      <description>DIODE GEN PURP 400V 1A SMA</description>
+      <docs>https://www.onsemi.com/pub/Collateral/S1M-D.pdf</docs>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">S1G</field>
+        <field name="Footprint">digikey-footprints:DO-214AC</field>
+        <field name="Datasheet">https://www.onsemi.com/pub/Collateral/S1M-D.pdf</field>
+        <field name="Digi-Key_PN">S1GFSCT-ND</field>
+        <field name="MPN">S1G</field>
+        <field name="Category">Discrete Semiconductor Products</field>
+        <field name="Family">Diodes - Rectifiers - Single</field>
+        <field name="DK_Datasheet_Link">https://www.onsemi.com/pub/Collateral/S1M-D.pdf</field>
+        <field name="DK_Detail_Page">/product-detail/en/on-semiconductor/S1G/S1GFSCT-ND/965720</field>
+        <field name="Description">DIODE GEN PURP 400V 1A SMA</field>
+        <field name="Manufacturer">ON Semiconductor</field>
+        <field name="Status">Active</field>
+      </fields>
+      <pins>
+        <pin num="A" name="" type="passive"/>
+        <pin num="K" name="" type="passive"/>
       </pins>
     </libpart>
     <libpart lib="dk_Transistors-FETs-MOSFETs-Arrays" part="BSS138DW-7-F">
@@ -781,6 +947,9 @@
     <library logical="Misc_Custom">
       <uri>/Users/jazzlw/kicad_libraries/Misc_Custom.kicad_sym</uri>
     </library>
+    <library logical="dk_Diodes-Rectifiers-Single">
+      <uri>/Users/jazzlw/kicad_libraries/digikey-kicad-library/digikey-symbols/dk_Diodes-Rectifiers-Single.kicad_sym</uri>
+    </library>
     <library logical="dk_Transistors-FETs-MOSFETs-Arrays">
       <uri>/Users/jazzlw/kicad_libraries/digikey-kicad-library/digikey-symbols/dk_Transistors-FETs-MOSFETs-Arrays.kicad_sym</uri>
     </library>
@@ -796,18 +965,21 @@
     </net>
     <net code="2" name="+5V">
       <node ref="A1" pin="5" pinfunction="+5V" pintype="power_out"/>
-      <node ref="C5" pin="1" pintype="passive"/>
       <node ref="J3" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="J4" pin="1" pinfunction="1" pintype="passive"/>
-      <node ref="PS1" pin="7" pinfunction="+VO" pintype="output"/>
       <node ref="R3" pin="1" pintype="passive"/>
       <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
       <node ref="RN1" pin="6" pinfunction="R3.2" pintype="passive"/>
       <node ref="RN1" pin="8" pinfunction="R1.2" pintype="passive"/>
+      <node ref="RN2" pin="6" pinfunction="R3.2" pintype="passive"/>
+      <node ref="RN2" pin="7" pinfunction="R2.2" pintype="passive"/>
     </net>
     <net code="3" name="+12V">
       <node ref="A1" pin="8" pinfunction="VIN" pintype="power_in"/>
+      <node ref="C5" pin="1" pintype="passive"/>
       <node ref="C7" pin="2" pintype="passive"/>
+      <node ref="PS1" pin="7" pinfunction="+VO" pintype="output"/>
     </net>
     <net code="4" name="/0(Rx)">
       <node ref="A1" pin="15" pinfunction="D0/RX" pintype="bidirectional"/>
@@ -817,15 +989,18 @@
     </net>
     <net code="6" name="/2">
       <node ref="A1" pin="17" pinfunction="D2" pintype="bidirectional"/>
-      <node ref="SW1" pin="B" pinfunction="B" pintype="passive"/>
+      <node ref="C10" pin="1" pintype="passive"/>
+      <node ref="RN2" pin="5" pinfunction="R4.2" pintype="passive"/>
     </net>
     <net code="7" name="/3(**)">
       <node ref="A1" pin="18" pinfunction="D3" pintype="bidirectional"/>
-      <node ref="SW1" pin="A" pinfunction="A" pintype="passive"/>
+      <node ref="C9" pin="1" pintype="passive"/>
+      <node ref="RN2" pin="8" pinfunction="R1.2" pintype="passive"/>
     </net>
     <net code="8" name="/4">
       <node ref="A1" pin="19" pinfunction="D4" pintype="bidirectional"/>
-      <node ref="SW1" pin="S2" pinfunction="S2" pintype="passive"/>
+      <node ref="C11" pin="1" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
     </net>
     <net code="9" name="/5(**)">
       <node ref="A1" pin="20" pinfunction="D5" pintype="bidirectional"/>
@@ -866,45 +1041,54 @@
     </net>
     <net code="20" name="/A2">
       <node ref="A1" pin="11" pinfunction="A2" pintype="bidirectional"/>
-    </net>
-    <net code="21" name="/A3">
-      <node ref="A1" pin="12" pinfunction="A3" pintype="bidirectional"/>
-    </net>
-    <net code="22" name="/A4">
-      <node ref="C6" pin="1" pintype="passive"/>
-      <node ref="J5" pin="3" pinfunction="3" pintype="passive"/>
-      <node ref="R3" pin="2" pintype="passive"/>
-    </net>
-    <net code="23" name="/A4(SDA)">
-      <node ref="A1" pin="13" pinfunction="A4/SDA" pintype="bidirectional"/>
-      <node ref="Q1" pin="6" pinfunction="D2" pintype="output"/>
-      <node ref="RN1" pin="1" pinfunction="R1.1" pintype="passive"/>
-    </net>
-    <net code="24" name="/A5">
       <node ref="C8" pin="1" pintype="passive"/>
       <node ref="J6" pin="1" pintype="passive"/>
       <node ref="R4" pin="2" pintype="passive"/>
     </net>
-    <net code="25" name="/A5(SCL)">
+    <net code="21" name="/A3">
+      <node ref="A1" pin="12" pinfunction="A3" pintype="bidirectional"/>
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="J5" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+    </net>
+    <net code="22" name="/A4(SDA)">
+      <node ref="A1" pin="13" pinfunction="A4/SDA" pintype="bidirectional"/>
+      <node ref="Q1" pin="6" pinfunction="D2" pintype="output"/>
+      <node ref="RN1" pin="1" pinfunction="R1.1" pintype="passive"/>
+    </net>
+    <net code="23" name="/A5(SCL)">
       <node ref="A1" pin="14" pinfunction="A5/SCL" pintype="bidirectional"/>
       <node ref="Q1" pin="3" pinfunction="D1" pintype="output"/>
       <node ref="RN1" pin="3" pinfunction="R3.1" pintype="passive"/>
     </net>
-    <net code="26" name="/SCL_3V">
+    <net code="24" name="/SCL_3V">
       <node ref="J2" pin="4" pinfunction="Pin_4" pintype="passive"/>
       <node ref="Q1" pin="4" pinfunction="S1" pintype="input"/>
       <node ref="RN1" pin="4" pinfunction="R4.1" pintype="passive"/>
     </net>
-    <net code="27" name="/SDA_3V">
+    <net code="25" name="/SDA_3V">
       <node ref="J2" pin="3" pinfunction="Pin_3" pintype="passive"/>
       <node ref="Q1" pin="1" pinfunction="S2" pintype="input"/>
       <node ref="RN1" pin="2" pinfunction="R2.1" pintype="passive"/>
+    </net>
+    <net code="26" name="/heater_-">
+      <node ref="D1" pin="A" pintype="passive"/>
+      <node ref="J5" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="Q2" pin="2" pinfunction="D" pintype="bidirectional"/>
+      <node ref="TP3" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="27" name="/reset">
+      <node ref="A1" pin="3" pinfunction="RESET" pintype="input"/>
+      <node ref="SW2" pin="2" pinfunction="2" pintype="unspecified"/>
     </net>
     <net code="28" name="GND">
       <node ref="A1" pin="29" pinfunction="GND" pintype="power_in"/>
       <node ref="A1" pin="6" pinfunction="GND" pintype="power_in"/>
       <node ref="A1" pin="7" pinfunction="GND" pintype="power_in"/>
       <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C10" pin="2" pintype="passive"/>
+      <node ref="C11" pin="2" pintype="passive"/>
+      <node ref="C12" pin="2" pintype="passive"/>
       <node ref="C2" pin="2" pintype="passive"/>
       <node ref="C3" pin="2" pintype="passive"/>
       <node ref="C4" pin="2" pintype="passive"/>
@@ -912,62 +1096,76 @@
       <node ref="C6" pin="2" pintype="passive"/>
       <node ref="C7" pin="1" pintype="passive"/>
       <node ref="C8" pin="2" pintype="passive"/>
+      <node ref="C9" pin="2" pintype="passive"/>
       <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
       <node ref="J2" pin="1" pinfunction="Pin_1" pintype="passive"/>
       <node ref="J3" pin="2" pinfunction="2" pintype="passive"/>
       <node ref="J4" pin="2" pinfunction="2" pintype="passive"/>
-      <node ref="J5" pin="4" pinfunction="4" pintype="passive"/>
+      <node ref="J5" pin="3" pinfunction="3" pintype="passive"/>
       <node ref="J5" pin="G1" pinfunction="GND" pintype="power_in"/>
       <node ref="J5" pin="G2" pinfunction="GND__1" pintype="power_in"/>
       <node ref="J6" pin="2" pintype="passive"/>
       <node ref="J6" pin="3" pintype="passive"/>
       <node ref="PS1" pin="2" pinfunction="GND" pintype="power_in"/>
       <node ref="PS1" pin="5" pinfunction="0V" pintype="passive"/>
-      <node ref="Q2" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q2" pin="3" pinfunction="S" pintype="bidirectional"/>
       <node ref="R1" pin="1" pintype="passive"/>
       <node ref="SW1" pin="C" pinfunction="C" pintype="passive"/>
       <node ref="SW1" pin="S1" pinfunction="S1" pintype="passive"/>
       <node ref="TP1" pin="1" pinfunction="1" pintype="passive"/>
     </net>
-    <net code="29" name="Net-(D1-A)">
-      <node ref="D1" pin="2" pinfunction="A" pintype="passive"/>
-      <node ref="J5" pin="2" pinfunction="2" pintype="passive"/>
-      <node ref="Q2" pin="3" pinfunction="D" pintype="passive"/>
-      <node ref="TP3" pin="1" pinfunction="1" pintype="passive"/>
+    <net code="29" name="Net-(C12-Pad1)">
+      <node ref="C12" pin="1" pintype="passive"/>
+      <node ref="SW2" pin="1" pinfunction="1" pintype="unspecified"/>
     </net>
     <net code="30" name="Net-(Q2-G)">
-      <node ref="Q2" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="Q2" pin="1" pinfunction="G" pintype="bidirectional"/>
       <node ref="R2" pin="1" pintype="passive"/>
       <node ref="TP4" pin="1" pinfunction="1" pintype="passive"/>
     </net>
-    <net code="31" name="VSS">
+    <net code="31" name="Net-(R5-Pad2)">
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+      <node ref="SW1" pin="S2" pinfunction="S2" pintype="passive"/>
+    </net>
+    <net code="32" name="Net-(RN2A-R1.1)">
+      <node ref="RN2" pin="1" pinfunction="R1.1" pintype="passive"/>
+      <node ref="RN2" pin="2" pinfunction="R2.1" pintype="passive"/>
+      <node ref="SW1" pin="A" pinfunction="A" pintype="passive"/>
+    </net>
+    <net code="33" name="Net-(RN2C-R3.1)">
+      <node ref="RN2" pin="3" pinfunction="R3.1" pintype="passive"/>
+      <node ref="RN2" pin="4" pinfunction="R4.1" pintype="passive"/>
+      <node ref="SW1" pin="B" pinfunction="B" pintype="passive"/>
+    </net>
+    <net code="34" name="VSS">
       <node ref="C1" pin="1" pintype="passive"/>
       <node ref="C2" pin="1" pintype="passive"/>
       <node ref="C3" pin="1" pintype="passive"/>
       <node ref="C4" pin="1" pintype="passive"/>
-      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="D1" pin="K" pintype="passive"/>
       <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
-      <node ref="J5" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="J5" pin="4" pinfunction="4" pintype="passive"/>
       <node ref="PS1" pin="1" pinfunction="VIN" pintype="input"/>
       <node ref="TP2" pin="1" pinfunction="1" pintype="passive"/>
     </net>
-    <net code="32" name="unconnected-(A1-AREF-Pad30)">
+    <net code="35" name="unconnected-(A1-AREF-Pad30)">
       <node ref="A1" pin="30" pinfunction="AREF" pintype="input+no_connect"/>
     </net>
-    <net code="33" name="unconnected-(A1-IOREF-Pad2)">
+    <net code="36" name="unconnected-(A1-IOREF-Pad2)">
       <node ref="A1" pin="2" pinfunction="IOREF" pintype="output+no_connect"/>
     </net>
-    <net code="34" name="unconnected-(A1-NC-Pad1)">
+    <net code="37" name="unconnected-(A1-NC-Pad1)">
       <node ref="A1" pin="1" pinfunction="NC" pintype="no_connect"/>
     </net>
-    <net code="35" name="unconnected-(A1-RESET-Pad3)">
-      <node ref="A1" pin="3" pinfunction="RESET" pintype="input+no_connect"/>
-    </net>
-    <net code="36" name="unconnected-(A1-SCL-Pad32)">
+    <net code="38" name="unconnected-(A1-SCL-Pad32)">
       <node ref="A1" pin="32" pinfunction="SCL" pintype="bidirectional+no_connect"/>
     </net>
-    <net code="37" name="unconnected-(A1-SDA-Pad31)">
+    <net code="39" name="unconnected-(A1-SDA-Pad31)">
       <node ref="A1" pin="31" pinfunction="SDA" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="40" name="unconnected-(SW2-Pad3)">
+      <node ref="SW2" pin="3" pinfunction="3" pintype="unspecified+no_connect"/>
     </net>
   </nets>
 </export>

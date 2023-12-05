@@ -45,6 +45,21 @@ def find_port_for_serial(serial_id: str) -> Optional[str]:
 
 
 class BallHeaterNode(Node):
+    """
+    A ROS node for controlling a ball heater.
+
+    This node communicates with a ball heater over a serial port. It publishes the
+    heater's status at a regular interval, and listens for commands to set the
+    heater's temperature.
+
+    The node's parameters include the topics to publish and subscribe to, the serial
+    port to use, the heater's PID control parameters, and various other options. If
+    a parameter is not set, a default value is used.
+
+    If a device serial number is specified in the parameters, the node will attempt
+    to find the corresponding serial port.
+    """
+
     def __init__(self):
         super().__init__("ball_heater_node")
 
@@ -142,6 +157,15 @@ class BallHeaterNode(Node):
         )
 
     def set_pid_parameters(self):
+        """
+        Sets the PID parameters for the ball heater.
+
+        This function retrieves the PID parameters (kp, ki, kd) from the node's parameters,
+        sends a command to the ball heater to set these parameters, and logs the new parameters
+        if verbose logging is enabled.
+
+        Parameters are expected to be set in the node's parameter server before this function is called.
+        """
         self.pid_params = [
             self.get_parameter("pid_kp").value,
             self.get_parameter("pid_ki").value,
