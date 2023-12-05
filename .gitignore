@@ -1,7 +1,7 @@
 **/.vscode 
 .DS_Store
 **/.vscode
-*.ai
+# *.ai
 .~lock.*
 *.lck
 temp/
