@@ -1,5 +1,7 @@
 # Ball Heater Controller Assembly
 
+<img src="figures/ball_heater_controller_top.jpeg" width="60%" alt="controller top view">
+
 The parts needed to build the ball heater are listed with links and part numbers in the first sheet of the [Bill of Materials (BOM)](../ball_heater_controller_pcb/ball_heater_controller_bom_V%201.ods) spreadsheet.
 
 ## PCB
@@ -39,12 +41,17 @@ Laser cut the two enclosure parts files out of 1/8 inch and 1/4 inch acrylic for
 * Attach green ground wire from power inlet to PSU ground terminal (⏚).
 * Attach wires from switch to PSU. Yellow to L and white to N.
 * Attach wires from PSU to board, red between V+ on PSU and +5V terminal on board, black from V- to GND on board. Trim stripped end slightly shorter before securing to board if bare wire shows outside the screw terminal.
-* Make sure that the switch to the left of the microcontroller is in the down position, towards "Normal Reset"
+* Make sure that the switch (SW2) to the left of the microcontroller is in the down position, towards "Normal Reset"
+
+<img src="figures/program_switch.jpeg" width="20%" alt="switch position">
+
 * Attach USB c cable to the microcontroller on the PCB.
-* Screw washer and nut onto rotary encoder and nut onto M8 connector on front of box.
 * Screw box together with 6-32 by 1/2 inch button head screws and nuts.
+* Loosen screws holding the PCB to the box, slide PCB till it is flush against the front panel, and re-tighten.
+* Screw washer and nut onto rotary encoder and nut onto M8 connector on front of box.
+* Put a 0.5 A fuse in the fuse holder of the power inlet.
 * Put knob onto the rotary encoder.
-* Program the microcontroller and test!
+* Program the microcontroller with the code from [`ball_heater_controller_firmware`](../ball_heater_controller_firmware/ball_heater_controller_firmware.ino) using the Arduino IDE, and test!
 
 ## Ball Heater
 
