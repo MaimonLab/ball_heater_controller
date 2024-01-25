@@ -16,6 +16,8 @@
 #define NO_TEMP_ERROR 7
 #define NON_RESPONSIVE_ERROR 8
 
+#define PID_SAMPLE_TIME 500 // 500 ms
+
 // Non responsive error done with a slow exponential filter
 // Tau of the filter =  - 1 / ln(RESPONSE_FILTER_WEIGHT)
 // 0.95 -> tau = 19.5 seconds
@@ -87,9 +89,13 @@ private:
 
     double _pid_input;
     double _pid_output;
-    double _kp = 120, _ki = 0.2, _kd = 0.1;
+    // double _kp = 10, _ki = 1, _kd = 0.1;
+    // PID _pid = PID(&_pid_input, &_pid_output, &_target_temp,
+    //                _kp, _ki, _kd, P_ON_M, DIRECT);
+
+    double _kp = 12.5, _ki = 0.1, _kd = 0.1;
     PID _pid = PID(&_pid_input, &_pid_output, &_target_temp,
-                   _kp, _ki, _kd, P_ON_M, DIRECT);
+                   _kp, _ki, _kd, DIRECT);
 };
 
 #endif

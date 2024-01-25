@@ -29,7 +29,7 @@ Laser cut the two enclosure parts files out of 1/8 inch and 1/4 inch acrylic for
 * Install switch into front panel.
 * Attach USB panel mount cable to back panel.
 * Attach IEC C14 power inlet to back panel with 6-32 by 5/8 flat head screws and nuts.
-* Screw PSU to bottom of case with M3 x 5 button head screws.
+* Screw PSU to bottom of case with M3 x 8mm button head screws.
 * Put rubber feet on bottom of case.
 * Attach 4 in QWIIC cable to LCD.
 * Screw LCD to front of case with #2-56 by 1/2 inch screws, nuts and washers, using acrylic spacer between LCD and front panel.

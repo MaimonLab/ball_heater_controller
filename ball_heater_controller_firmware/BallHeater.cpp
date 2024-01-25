@@ -26,7 +26,7 @@ void BallHeater::init()
 {
     // set some PID parameters
     _pid.SetOutputLimits(0, HEATER_MAX_PERCENT);
-    _pid.SetSampleTime(100); //
+    _pid.SetSampleTime(PID_SAMPLE_TIME); //
 
     delay(200); // make sure things are settled before starting.
     pinMode(_heat_pin, OUTPUT);

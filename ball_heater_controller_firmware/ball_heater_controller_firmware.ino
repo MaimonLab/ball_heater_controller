@@ -82,7 +82,7 @@ void setup()
     lcd.setContrast(0);              // Set contrast. Lower to 0 for higher contrast.
 
     sprintf(line0, "Ball Heater");
-    sprintf(line1, "V 0.1 by Jazz");
+    sprintf(line1, "V 0.1");
     update_display(1);
     delay(3000);
     wdt_enable(WDTO_4S); // Enable WDT with a timeout of 4 seconds
