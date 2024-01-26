@@ -11,7 +11,7 @@ import PySimpleGUI as sg
 from typing import Callable
 
 import rclpy
-from ball_heater_interfaces.msg import BallHeaterSetTemp, BallHeaterStatus
+from ball_heater_controller_interfaces.msg import BallHeaterSetTemp, BallHeaterStatus
 from ament_index_python.packages import get_package_share_directory
 from maimon_classes.basic_node import BasicNode
 from rclpy.node import Node
@@ -45,8 +45,8 @@ class BallHeaterGui(BasicNode):
         )
 
         self.default_param = {
-            "ball_heater_set_temp_topic": "ball_heater/set_temp_topic",
-            "ball_heater_status_topic": "ball_heater/status_topic",
+            "ball_heater_set_temp_topic": "ball_heater_controller/set_temp_topic",
+            "ball_heater_status_topic": "ball_heater_controller/status_topic",
         }
 
         self.register_publisher(

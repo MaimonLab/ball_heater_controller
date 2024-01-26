@@ -7,7 +7,7 @@ from typing import Optional
 import rclpy
 import serial.tools.list_ports
 from ament_index_python.packages import get_package_share_directory
-from ball_heater_interfaces.msg import BallHeaterSetTemp, BallHeaterStatus
+from ball_heater_controller_interfaces.msg import BallHeaterSetTemp, BallHeaterStatus
 from event_data_logging import CSVWriter
 from event_data_logging.data_handling import flatten_dictionary
 from event_data_logging.ros2_message_handling import (
