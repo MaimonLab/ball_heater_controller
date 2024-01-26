@@ -74,8 +74,8 @@ class BallHeaterNode(Node):
                 f"{WORKSPACE}/src/" f"ball_heater_controller/data/test_filename"
             ),
             "status_interval": 1.0,
-            "pid_kp": 15,
-            "pid_ki": 1,
+            "pid_kp": 12.5,
+            "pid_ki": 0.1,
             "pid_kd": 0.1,
         }
         for key, value in default_param.items():
@@ -92,7 +92,8 @@ class BallHeaterNode(Node):
             device_serial_number is not None
         ):
             raise TypeError(
-                f"device_serial_number should be of type string! It is currently type: {type(device_serial_number)}"
+                f"device_serial_number should be of type string! It is "
+                f"currently type: {type(device_serial_number)}"
             )
 
         # if a serial number is specified, get a port to try and open
@@ -192,10 +193,12 @@ class BallHeaterNode(Node):
             self.get_logger().warn(f"Unsuccessful set temp command")
 
     def publish_status(self):
+        """Get the current status from the ball heater and publish it as a ROS message."""
+        success, status_dict = self.ball_heater.send_command("status")
+
         status_msg = BallHeaterStatus()
         status_msg.header.stamp = self.get_clock().now().to_msg()
 
-        success, status_dict = self.ball_heater.send_command("status")
         if not success:
             self.get_logger().warn(f"unsuccessful command, status: {status_dict}")
             return
@@ -207,13 +210,15 @@ class BallHeaterNode(Node):
             status_msg.aux_therm_temp = status_dict["aux_therm_temp"]
             status_msg.control_mode = status_dict["control_mode"]
 
+            log_dict = convert_ros2_msg_to_nanosecond_stamped_dict(status_msg)
+            header, data_line = flatten_dictionary(log_dict)
+
         except:
             self.get_logger().error(
                 f"Getting / parsing status failed, not publishing, {sys.exc_info()}"
             )
+            return
 
-        log_dict = convert_ros2_msg_to_nanosecond_stamped_dict(status_msg)
-        header, data_line = flatten_dictionary(log_dict)
         if not self.csv_writer.header_initialized:
             self.csv_writer.save_header(header)
         self.csv_writer.save_line(data_line)
