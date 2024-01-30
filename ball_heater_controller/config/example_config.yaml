@@ -1,14 +1,14 @@
 ball_heater_client:
   ros__parameters:
-    ball_heater_set_temp_topic: ball_heater/set_temp_topic
-    ball_heater_status_topic: ball_heater/status_topic
+    ball_heater_set_temp_topic: ball_heater_controller/set_temp_topic
+    ball_heater_status_topic: ball_heater_controller/status_topic
     temperature_setpoint: 25.0
     print_status: false
 
 ball_heater_node:
   ros__parameters:
-    ball_heater_set_temp_topic: ball_heater/set_temp_topic
-    ball_heater_status_topic: ball_heater/status_topic
-    serial_port: /dev/ttyUSB0
+    ball_heater_set_temp_topic: ball_heater_controller/set_temp_topic
+    ball_heater_status_topic: ball_heater_controller/status_topic
+    # serial_port: /dev/ttyUSB0
     status_interval: 0.5
-    # device_serial_number: "cc7d773d0aa4ec118069e789a29c855c"
+    device_serial_number: 8033d9d474a4ec11ac9fdb89a29c855c
