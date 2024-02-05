@@ -39,10 +39,10 @@ def generate_launch_description():
         executable="rqt_plot",
         name="rqt_plot",
         arguments=[
-            "/ball_heater/status_topic//ball_heater_pwm",
-            "/ball_heater/status_topic//heater_temp",
-            "/ball_heater/status_topic//aux_therm_temp",
-            "/ball_heater/status_topic//target_temp",
+            "/ball_heater_controller/status_topic//ball_heater_pwm",
+            "/ball_heater_controller/status_topic//heater_temp",
+            "/ball_heater_controller/status_topic//aux_therm_temp",
+            "/ball_heater_controller/status_topic//target_temp",
         ],
     )
     ld.add_action(rqt_plot)
