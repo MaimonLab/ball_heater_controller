@@ -23,8 +23,8 @@ Laser cut the two enclosure parts files out of 1/8 inch and 1/4 inch acrylic for
 |---|---|---| --- |
 |Power in ground|green |5 inches | crimp one end|
 |Power in to switch| yellow + white | 7 inches | crimp both ends|
-|Switch to PSU| yellow + white | 11 inches | crimp one end|
-|PSU to board| black + red | 6 inches | strip only|
+|Switch to PSU| yellow + white | 10 inches | crimp one end|
+|PSU to board| black + red | 4 inches | strip only|
 
 * Attach wires to switch, power in on the bottom, power to PSU on the top, whith white on one  side and yellow on the other.
 * Install switch into front panel.
