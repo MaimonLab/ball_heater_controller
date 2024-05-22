@@ -61,8 +61,8 @@ The ball heater itself is made by wrapping the bottom end of an aluminum ball ho
 <img src="figures/ball_heater_assembly.jpeg" width=100%>
 
 1. Start with 9.5 in of [nichrome wire](https://www.mcmaster.com/8880K77/) and wrap into a helix on a 3d printed [mandrel.](ball_heater_guide-01.stl)
-2. Cover the bottom of the ball heater with 1 layer of [kapton tape](https://www.mcmaster.com/1754N12/), and then put the nichrome helix over it by gently unwinding it as it goes on. It should fit tight.  Make sure the coils are evenly spaced and none are touching or touching the aluminum.
-3. Cover the Nichrome helix with [thermal epoxy](https://www.digikey.com/en/products/detail/mg-chemicals/8329TCM-6ML/6035511), and add a [thermistor](https://www.digikey.com/en/products/detail/epcos-tdk-electronics/B57863S0103F040/739899) just above the nichrome. It should be touching the aluminum, with the wires going down over the nichrome. Cover with thermal epoxy.
+2. Cover the bottom of the ball heater with 1 layer of [kapton tape](https://www.mcmaster.com/1754N12/), and then put the nichrome helix over it by gently unwinding it as it goes on. It should fit tight.  Make sure the coils are evenly spaced and none are touching or touching the aluminum. Screw in the [90 degree hose barb](https://www.mcmaster.com/5463K54/), if using, so that you can align the wires with it.
+3. Cover the Nichrome helix with [thermal epoxy](https://www.digikey.com/en/products/detail/mg-chemicals/8329TCM-6ML/6035511), and add a [thermistor](https://www.digikey.com/en/products/detail/epcos-tdk-electronics/B57863S0103F040/739899) just above the nichrome. It should be touching the aluminum, with the wires going down over the nichrome. Cover with thermal epoxy. You will need about 1 gram of thermal epoxy per heater that you are making, mix a bit extra as well.
 
 ### Wiring
 
