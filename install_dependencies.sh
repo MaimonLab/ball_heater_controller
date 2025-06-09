@@ -9,4 +9,4 @@ pip3 install ruamel.yaml
 pip3 install numpy
 pip3 install event_data_logging
 pip3 install pyserial 
-pip3 install pysimplegui
+pip3 install FreeSimpleGUI

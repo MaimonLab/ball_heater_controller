@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 from typing import Callable
 
 import rclpy
