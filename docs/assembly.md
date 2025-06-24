@@ -22,8 +22,8 @@ Laser cut the two enclosure parts files out of 1/8 inch and 1/4 inch acrylic for
 | Use |  Colors | Length | End Treatment|
 |---|---|---| --- |
 |Power in ground|green |5 inches | crimp one end|
-|Power in to switch| yellow + white | 7 inches | crimp both ends|
-|Switch to PSU| yellow + white | 10 inches | crimp one end|
+|Power in to switch| yellow + white | 4 inches | crimp both ends|
+|Switch to PSU| yellow + white | 8 inches | crimp one end|
 |PSU to board| black + red | 4 inches | strip only|
 
 * Attach wires to switch, power in on the bottom, power to PSU on the top, whith white on one  side and yellow on the other.
@@ -50,7 +50,7 @@ Laser cut the two enclosure parts files out of 1/8 inch and 1/4 inch acrylic for
 * Screw box together with 6-32 by 1/2 inch button head screws and nuts.
 * Loosen screws holding the PCB to the box, slide PCB till it is flush against the front panel, and re-tighten.
 * Screw washer and nut onto rotary encoder and nut onto M8 connector on front of box.
-* Put a 0.5 A fuse in the fuse holder of the power inlet.
+* Put a 1 A fuse in the fuse holder of the power inlet.
 * Put knob onto the rotary encoder.
 * Program the microcontroller with the code from [`ball_heater_controller_firmware`](../ball_heater_controller_firmware/ball_heater_controller_firmware.ino) using the Arduino IDE, and test!
 
